@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1684
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestClient", "TestClient\TestClient.vcxproj", "{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommondataClient", "CommondataClient\CommondataClient.vcxproj", "{BA0629E6-B2C5-4C33-9762-0B5A709FA618}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommondataProto", "CommondataProto\CommondataProto.vcxproj", "{33BA92CE-F2CF-40B0-8661-58E09BFD139C}"
@@ -19,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Debug|x64.ActiveCfg = Debug|x64
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Debug|x64.Build.0 = Debug|x64
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Debug|x86.ActiveCfg = Debug|Win32
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Debug|x86.Build.0 = Debug|Win32
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Release|x64.ActiveCfg = Release|x64
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Release|x64.Build.0 = Release|x64
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Release|x86.ActiveCfg = Release|Win32
-		{BF7B4EE2-D60E-45BE-BACC-EF78517370D3}.Release|x86.Build.0 = Release|Win32
 		{BA0629E6-B2C5-4C33-9762-0B5A709FA618}.Debug|x64.ActiveCfg = Debug|x64
 		{BA0629E6-B2C5-4C33-9762-0B5A709FA618}.Debug|x64.Build.0 = Debug|x64
 		{BA0629E6-B2C5-4C33-9762-0B5A709FA618}.Debug|x86.ActiveCfg = Debug|Win32

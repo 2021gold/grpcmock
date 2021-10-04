@@ -4,6 +4,8 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <tchar.h>
+#include <wchar.h>
 
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
@@ -54,13 +56,51 @@ private:
 	std::unique_ptr<Greeter::Stub> stub_;
 };
 
+std::string convertToString(char* a, int size)
+{
+	int i;
+	std::string s = "";
+	for (i = 0; i < size; i++) {
+		s = s + a[i];
+	}
+	return s;
+}
+
+std::string getDataIniFile(LPCWSTR appName, LPCWSTR keyName)
+{
+	// read ini file
+	wchar_t address_wc[100];
+	char address_c[100];
+
+	GetPrivateProfileString(
+		appName,
+		keyName,
+		TEXT("fail while retrieving file"),
+		address_wc,
+		100,
+		TEXT("..\\Data\\config.ini")
+		//TEXT("C:\\Users\\David\\Documents\\Mock\\commondata\\Demo\\Data\\config.ini")
+
+
+	);
+	wcstombs(address_c, address_wc, 100);
+	std::cout << "ini : " << address_c << std::endl;
+	int a_size = sizeof(address_c) / sizeof(char);
+	return convertToString(address_c, a_size);
+}
 
 int main()
 {
 	std::cout << "Hello World client!\n";
-	std::string target_str;
-	target_str = "localhost:50051";
+	
+	//
+	std::string address_str = getDataIniFile(TEXT("config"), TEXT("address"));
+	std::string port_str = getDataIniFile(TEXT("config"), TEXT("port"));
 
+	std::string target_str;
+	//target_str = "localhost:50051";
+	target_str = address_str + port_str;
+	std::cout << "target : " << target_str;
 	GreeterClient greeter(
 		grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
 	std::string user("world");
