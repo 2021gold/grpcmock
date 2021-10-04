@@ -4,8 +4,11 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <tchar.h>
+#include <wchar.h>
 
 #include <grpcpp/grpcpp.h>
+
 #include <grpcpp/health_check_service_interface.h>
 
 #include "../CommondataProto/ProtoOutput/cpp/test.grpc.pb.h"
@@ -18,6 +21,41 @@ using helloworld::Greeter;
 using helloworld::HelloReply;
 using helloworld::HelloRequest;
 
+#define MAX_BUFFER 255
+
+std::string getDataIniFile(LPCWSTR appName, LPCWSTR keyName)
+{
+	// read ini file
+	wchar_t address_wc[100];
+	char address_c[100];
+	std::string result;
+
+	GetPrivateProfileString(
+		appName,
+		keyName,
+		L"fail while retrieving file",
+		address_wc,
+		100,
+		L"..\\Data\\config.ini"
+
+	);
+	wcstombs(address_c, address_wc, MAX_BUFFER);
+	std::cout << "ini : " << address_c << std::endl;
+
+	for (int i = 0; i < sizeof(address_c); i++)
+	{
+		if (address_c[i] == NULL)
+		{
+			break;
+		}
+
+		result.push_back(address_c[i]);
+	}
+	return result;
+}
+
+
+
 class GreeterServiceImpl final : public Greeter::Service {
 	Status SayHello(ServerContext* context, const HelloRequest* request,
 		HelloReply* reply) override {
@@ -27,8 +65,8 @@ class GreeterServiceImpl final : public Greeter::Service {
 	}
 };
 
-void RunServer() {
-	std::string server_address("0.0.0.0:50051");
+void RunServer(const std::string &server_address) {
+	
 	GreeterServiceImpl service;
 
 	grpc::EnableDefaultHealthCheckService(true);
@@ -48,8 +86,18 @@ void RunServer() {
 	server->Wait();
 }
 
+
 int main()
 {
 	std::cout << "Hello World Server!\n";
-	RunServer();
+	std::string address_str = getDataIniFile(L"config", L"address");
+	std::string port_str = getDataIniFile(L"config", L"port");
+	//std::string server_address("0.0.0.0:50051");
+
+	std::string server_address;
+	//target_str = "localhost:50051";
+	server_address = address_str.append(":").append(port_str);
+	std::cout << "serveraddress : " << server_address << std::endl;
+
+	RunServer(server_address);
 }

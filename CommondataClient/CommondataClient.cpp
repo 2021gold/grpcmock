@@ -12,12 +12,16 @@
 
 #include "../CommondataProto/ProtoOutput/cpp/test.grpc.pb.h"
 
+
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 using helloworld::Greeter;
 using helloworld::HelloReply;
 using helloworld::HelloRequest;
+
+#define MAX_BUFFER 255
+
 
 class GreeterClient {
 public:
@@ -56,37 +60,35 @@ private:
 	std::unique_ptr<Greeter::Stub> stub_;
 };
 
-std::string convertToString(char* a, int size)
-{
-	int i;
-	std::string s = "";
-	for (i = 0; i < size; i++) {
-		s = s + a[i];
-	}
-	return s;
-}
-
 std::string getDataIniFile(LPCWSTR appName, LPCWSTR keyName)
 {
 	// read ini file
 	wchar_t address_wc[100];
 	char address_c[100];
+	std::string result;
 
 	GetPrivateProfileString(
 		appName,
 		keyName,
-		TEXT("fail while retrieving file"),
+		L"fail while retrieving file",
 		address_wc,
 		100,
-		TEXT("..\\Data\\config.ini")
-		//TEXT("C:\\Users\\David\\Documents\\Mock\\commondata\\Demo\\Data\\config.ini")
-
+		L"..\\Data\\config.ini"
 
 	);
-	wcstombs(address_c, address_wc, 100);
+	wcstombs(address_c, address_wc, MAX_BUFFER);
 	std::cout << "ini : " << address_c << std::endl;
-	int a_size = sizeof(address_c) / sizeof(char);
-	return convertToString(address_c, a_size);
+
+	for (int i = 0; i < sizeof(address_c); i++)
+	{
+		if (address_c[i] == NULL)
+		{
+			break;
+		}
+		
+		result.push_back(address_c[i]);
+	}
+	return result;
 }
 
 int main()
@@ -94,13 +96,13 @@ int main()
 	std::cout << "Hello World client!\n";
 	
 	//
-	std::string address_str = getDataIniFile(TEXT("config"), TEXT("address"));
-	std::string port_str = getDataIniFile(TEXT("config"), TEXT("port"));
+	std::string address_str = getDataIniFile(L"config", L"address");
+	std::string port_str = getDataIniFile(L"config", L"port");
 
 	std::string target_str;
 	//target_str = "localhost:50051";
-	target_str = address_str + port_str;
-	std::cout << "target : " << target_str;
+	target_str = address_str.append(":").append(port_str);
+	std::cout << "target : " << target_str << std::endl;
 	GreeterClient greeter(
 		grpc::CreateChannel(target_str, grpc::InsecureChannelCredentials()));
 	std::string user("world");
