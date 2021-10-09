@@ -1,27 +1,30 @@
 
 syntax = "proto3";
+import "google/protobuf/empty.proto";
+package commondata;
 
-package helloworld;
 
+message SystemInfo {
 
-message Test1
-{
-    fixed32 TestData= 1;
+	  string version = 1;
+	  string model = 2;
+	  string region = 3;
+
+}
+
+message DisplaySetting {
+	  string theme = 1;
+	  string fontsize = 2;
 }
 
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {}
+service CommondataService {
+
+  rpc GetSystemInfo (google.protobuf.Empty) returns (SystemInfo) {}
+  rpc SetSystemInfo (SystemInfo) returns (google.protobuf.Empty) {}
+  rpc GetDisplaySetting (google.protobuf.Empty) returns (DisplaySetting) {}
+  rpc TestDisplaySetting (DisplaySetting) returns (google.protobuf.Empty) {}
+  rpc GetSystemInfoDisplay (DisplaySetting) returns (SystemInfo) {}
+
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}
-
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
-}

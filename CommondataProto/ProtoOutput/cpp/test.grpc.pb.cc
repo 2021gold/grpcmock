@@ -19,62 +19,230 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace helloworld {
+namespace commondata {
 
-static const char* Greeter_method_names[] = {
-  "/helloworld.Greeter/SayHello",
+static const char* CommondataService_method_names[] = {
+  "/commondata.CommondataService/GetSystemInfo",
+  "/commondata.CommondataService/SetSystemInfo",
+  "/commondata.CommondataService/GetDisplaySetting",
+  "/commondata.CommondataService/TestDisplaySetting",
+  "/commondata.CommondataService/GetSystemInfoDisplay",
 };
 
-std::unique_ptr< Greeter::Stub> Greeter::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< CommondataService::Stub> CommondataService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Greeter::Stub> stub(new Greeter::Stub(channel, options));
+  std::unique_ptr< CommondataService::Stub> stub(new CommondataService::Stub(channel, options));
   return stub;
 }
 
-Greeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_SayHello_(Greeter_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+CommondataService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetSystemInfo_(CommondataService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetSystemInfo_(CommondataService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetDisplaySetting_(CommondataService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_TestDisplaySetting_(CommondataService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetSystemInfoDisplay_(CommondataService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Greeter::Stub::SayHello(::grpc::ClientContext* context, const ::helloworld::HelloRequest& request, ::helloworld::HelloReply* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::helloworld::HelloRequest, ::helloworld::HelloReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SayHello_, context, request, response);
+::grpc::Status CommondataService::Stub::GetSystemInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::commondata::SystemInfo* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetSystemInfo_, context, request, response);
 }
 
-void Greeter::Stub::async::SayHello(::grpc::ClientContext* context, const ::helloworld::HelloRequest* request, ::helloworld::HelloReply* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::helloworld::HelloRequest, ::helloworld::HelloReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SayHello_, context, request, response, std::move(f));
+void CommondataService::Stub::async::GetSystemInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::SystemInfo* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSystemInfo_, context, request, response, std::move(f));
 }
 
-void Greeter::Stub::async::SayHello(::grpc::ClientContext* context, const ::helloworld::HelloRequest* request, ::helloworld::HelloReply* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SayHello_, context, request, response, reactor);
+void CommondataService::Stub::async::GetSystemInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::SystemInfo* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSystemInfo_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::helloworld::HelloReply>* Greeter::Stub::PrepareAsyncSayHelloRaw(::grpc::ClientContext* context, const ::helloworld::HelloRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::helloworld::HelloReply, ::helloworld::HelloRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SayHello_, context, request);
+::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* CommondataService::Stub::PrepareAsyncGetSystemInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::commondata::SystemInfo, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetSystemInfo_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::helloworld::HelloReply>* Greeter::Stub::AsyncSayHelloRaw(::grpc::ClientContext* context, const ::helloworld::HelloRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* CommondataService::Stub::AsyncGetSystemInfoRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncSayHelloRaw(context, request, cq);
+    this->PrepareAsyncGetSystemInfoRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-Greeter::Service::Service() {
+::grpc::Status CommondataService::Stub::SetSystemInfo(::grpc::ClientContext* context, const ::commondata::SystemInfo& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::commondata::SystemInfo, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetSystemInfo_, context, request, response);
+}
+
+void CommondataService::Stub::async::SetSystemInfo(::grpc::ClientContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::commondata::SystemInfo, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetSystemInfo_, context, request, response, std::move(f));
+}
+
+void CommondataService::Stub::async::SetSystemInfo(::grpc::ClientContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetSystemInfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::PrepareAsyncSetSystemInfoRaw(::grpc::ClientContext* context, const ::commondata::SystemInfo& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetSystemInfo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::AsyncSetSystemInfoRaw(::grpc::ClientContext* context, const ::commondata::SystemInfo& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetSystemInfoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status CommondataService::Stub::GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::commondata::DisplaySetting* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::google::protobuf::Empty, ::commondata::DisplaySetting, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetDisplaySetting_, context, request, response);
+}
+
+void CommondataService::Stub::async::GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::google::protobuf::Empty, ::commondata::DisplaySetting, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDisplaySetting_, context, request, response, std::move(f));
+}
+
+void CommondataService::Stub::async::GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetDisplaySetting_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>* CommondataService::Stub::PrepareAsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::commondata::DisplaySetting, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetDisplaySetting_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>* CommondataService::Stub::AsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetDisplaySettingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status CommondataService::Stub::TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::commondata::DisplaySetting, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_TestDisplaySetting_, context, request, response);
+}
+
+void CommondataService::Stub::async::TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::commondata::DisplaySetting, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TestDisplaySetting_, context, request, response, std::move(f));
+}
+
+void CommondataService::Stub::async::TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TestDisplaySetting_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::PrepareAsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::commondata::DisplaySetting, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_TestDisplaySetting_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::AsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncTestDisplaySettingRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status CommondataService::Stub::GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::commondata::SystemInfo* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::commondata::DisplaySetting, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetSystemInfoDisplay_, context, request, response);
+}
+
+void CommondataService::Stub::async::GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::commondata::DisplaySetting, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSystemInfoDisplay_, context, request, response, std::move(f));
+}
+
+void CommondataService::Stub::async::GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSystemInfoDisplay_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* CommondataService::Stub::PrepareAsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::commondata::SystemInfo, ::commondata::DisplaySetting, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetSystemInfoDisplay_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* CommondataService::Stub::AsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetSystemInfoDisplayRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+CommondataService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Greeter_method_names[0],
+      CommondataService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::helloworld::HelloRequest, ::helloworld::HelloReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Greeter::Service* service,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::google::protobuf::Empty, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::helloworld::HelloRequest* req,
-             ::helloworld::HelloReply* resp) {
-               return service->SayHello(ctx, req, resp);
+             const ::google::protobuf::Empty* req,
+             ::commondata::SystemInfo* resp) {
+               return service->GetSystemInfo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CommondataService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::commondata::SystemInfo, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::commondata::SystemInfo* req,
+             ::google::protobuf::Empty* resp) {
+               return service->SetSystemInfo(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CommondataService_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::google::protobuf::Empty, ::commondata::DisplaySetting, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::google::protobuf::Empty* req,
+             ::commondata::DisplaySetting* resp) {
+               return service->GetDisplaySetting(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CommondataService_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::commondata::DisplaySetting, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::commondata::DisplaySetting* req,
+             ::google::protobuf::Empty* resp) {
+               return service->TestDisplaySetting(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CommondataService_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::commondata::DisplaySetting, ::commondata::SystemInfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::commondata::DisplaySetting* req,
+             ::commondata::SystemInfo* resp) {
+               return service->GetSystemInfoDisplay(ctx, req, resp);
              }, this)));
 }
 
-Greeter::Service::~Service() {
+CommondataService::Service::~Service() {
 }
 
-::grpc::Status Greeter::Service::SayHello(::grpc::ServerContext* context, const ::helloworld::HelloRequest* request, ::helloworld::HelloReply* response) {
+::grpc::Status CommondataService::Service::GetSystemInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::SystemInfo* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CommondataService::Service::SetSystemInfo(::grpc::ServerContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CommondataService::Service::GetDisplaySetting(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CommondataService::Service::TestDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CommondataService::Service::GetSystemInfoDisplay(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -82,5 +250,5 @@ Greeter::Service::~Service() {
 }
 
 
-}  // namespace helloworld
+}  // namespace commondata
 

@@ -31,6 +31,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_test_2eproto
@@ -46,51 +47,47 @@ struct TableStruct_test_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_test_2eproto;
-namespace helloworld {
-class HelloReply;
-struct HelloReplyDefaultTypeInternal;
-extern HelloReplyDefaultTypeInternal _HelloReply_default_instance_;
-class HelloRequest;
-struct HelloRequestDefaultTypeInternal;
-extern HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
-class Test1;
-struct Test1DefaultTypeInternal;
-extern Test1DefaultTypeInternal _Test1_default_instance_;
-}  // namespace helloworld
+namespace commondata {
+class DisplaySetting;
+struct DisplaySettingDefaultTypeInternal;
+extern DisplaySettingDefaultTypeInternal _DisplaySetting_default_instance_;
+class SystemInfo;
+struct SystemInfoDefaultTypeInternal;
+extern SystemInfoDefaultTypeInternal _SystemInfo_default_instance_;
+}  // namespace commondata
 PROTOBUF_NAMESPACE_OPEN
-template<> ::helloworld::HelloReply* Arena::CreateMaybeMessage<::helloworld::HelloReply>(Arena*);
-template<> ::helloworld::HelloRequest* Arena::CreateMaybeMessage<::helloworld::HelloRequest>(Arena*);
-template<> ::helloworld::Test1* Arena::CreateMaybeMessage<::helloworld::Test1>(Arena*);
+template<> ::commondata::DisplaySetting* Arena::CreateMaybeMessage<::commondata::DisplaySetting>(Arena*);
+template<> ::commondata::SystemInfo* Arena::CreateMaybeMessage<::commondata::SystemInfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace helloworld {
+namespace commondata {
 
 // ===================================================================
 
-class Test1 final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:helloworld.Test1) */ {
+class SystemInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:commondata.SystemInfo) */ {
  public:
-  inline Test1() : Test1(nullptr) {}
-  ~Test1() override;
-  explicit constexpr Test1(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline SystemInfo() : SystemInfo(nullptr) {}
+  ~SystemInfo() override;
+  explicit constexpr SystemInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  Test1(const Test1& from);
-  Test1(Test1&& from) noexcept
-    : Test1() {
+  SystemInfo(const SystemInfo& from);
+  SystemInfo(SystemInfo&& from) noexcept
+    : SystemInfo() {
     *this = ::std::move(from);
   }
 
-  inline Test1& operator=(const Test1& from) {
+  inline SystemInfo& operator=(const SystemInfo& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Test1& operator=(Test1&& from) noexcept {
+  inline SystemInfo& operator=(SystemInfo&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()) {
       InternalSwap(&from);
@@ -109,20 +106,20 @@ class Test1 final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Test1& default_instance() {
+  static const SystemInfo& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Test1* internal_default_instance() {
-    return reinterpret_cast<const Test1*>(
-               &_Test1_default_instance_);
+  static inline const SystemInfo* internal_default_instance() {
+    return reinterpret_cast<const SystemInfo*>(
+               &_SystemInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(Test1& a, Test1& b) {
+  friend void swap(SystemInfo& a, SystemInfo& b) {
     a.Swap(&b);
   }
-  inline void Swap(Test1* other) {
+  inline void Swap(SystemInfo* other) {
     if (other == this) return;
     if (GetOwningArena() == other->GetOwningArena()) {
       InternalSwap(other);
@@ -130,7 +127,7 @@ class Test1 final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Test1* other) {
+  void UnsafeArenaSwap(SystemInfo* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -138,17 +135,17 @@ class Test1 final :
 
   // implements Message ----------------------------------------------
 
-  inline Test1* New() const final {
-    return new Test1();
+  inline SystemInfo* New() const final {
+    return new SystemInfo();
   }
 
-  Test1* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Test1>(arena);
+  SystemInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<SystemInfo>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Test1& from);
+  void CopyFrom(const SystemInfo& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const Test1& from);
+  void MergeFrom(const SystemInfo& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to, const ::PROTOBUF_NAMESPACE_ID::Message&from);
   public:
@@ -165,13 +162,13 @@ class Test1 final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Test1* other);
+  void InternalSwap(SystemInfo* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "helloworld.Test1";
+    return "commondata.SystemInfo";
   }
   protected:
-  explicit Test1(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit SystemInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -188,48 +185,85 @@ class Test1 final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTestDataFieldNumber = 1,
+    kVersionFieldNumber = 1,
+    kModelFieldNumber = 2,
+    kRegionFieldNumber = 3,
   };
-  // fixed32 TestData = 1;
-  void clear_testdata();
-  ::PROTOBUF_NAMESPACE_ID::uint32 testdata() const;
-  void set_testdata(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  // string version = 1;
+  void clear_version();
+  const std::string& version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_version();
+  PROTOBUF_MUST_USE_RESULT std::string* release_version();
+  void set_allocated_version(std::string* version);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_testdata() const;
-  void _internal_set_testdata(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const std::string& _internal_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_version(const std::string& value);
+  std::string* _internal_mutable_version();
   public:
 
-  // @@protoc_insertion_point(class_scope:helloworld.Test1)
+  // string model = 2;
+  void clear_model();
+  const std::string& model() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_model(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_model();
+  PROTOBUF_MUST_USE_RESULT std::string* release_model();
+  void set_allocated_model(std::string* model);
+  private:
+  const std::string& _internal_model() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_model(const std::string& value);
+  std::string* _internal_mutable_model();
+  public:
+
+  // string region = 3;
+  void clear_region();
+  const std::string& region() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_region(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_region();
+  PROTOBUF_MUST_USE_RESULT std::string* release_region();
+  void set_allocated_region(std::string* region);
+  private:
+  const std::string& _internal_region() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_region(const std::string& value);
+  std::string* _internal_mutable_region();
+  public:
+
+  // @@protoc_insertion_point(class_scope:commondata.SystemInfo)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 testdata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr model_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr region_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_test_2eproto;
 };
 // -------------------------------------------------------------------
 
-class HelloRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:helloworld.HelloRequest) */ {
+class DisplaySetting final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:commondata.DisplaySetting) */ {
  public:
-  inline HelloRequest() : HelloRequest(nullptr) {}
-  ~HelloRequest() override;
-  explicit constexpr HelloRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline DisplaySetting() : DisplaySetting(nullptr) {}
+  ~DisplaySetting() override;
+  explicit constexpr DisplaySetting(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  HelloRequest(const HelloRequest& from);
-  HelloRequest(HelloRequest&& from) noexcept
-    : HelloRequest() {
+  DisplaySetting(const DisplaySetting& from);
+  DisplaySetting(DisplaySetting&& from) noexcept
+    : DisplaySetting() {
     *this = ::std::move(from);
   }
 
-  inline HelloRequest& operator=(const HelloRequest& from) {
+  inline DisplaySetting& operator=(const DisplaySetting& from) {
     CopyFrom(from);
     return *this;
   }
-  inline HelloRequest& operator=(HelloRequest&& from) noexcept {
+  inline DisplaySetting& operator=(DisplaySetting&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()) {
       InternalSwap(&from);
@@ -248,20 +282,20 @@ class HelloRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const HelloRequest& default_instance() {
+  static const DisplaySetting& default_instance() {
     return *internal_default_instance();
   }
-  static inline const HelloRequest* internal_default_instance() {
-    return reinterpret_cast<const HelloRequest*>(
-               &_HelloRequest_default_instance_);
+  static inline const DisplaySetting* internal_default_instance() {
+    return reinterpret_cast<const DisplaySetting*>(
+               &_DisplaySetting_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(HelloRequest& a, HelloRequest& b) {
+  friend void swap(DisplaySetting& a, DisplaySetting& b) {
     a.Swap(&b);
   }
-  inline void Swap(HelloRequest* other) {
+  inline void Swap(DisplaySetting* other) {
     if (other == this) return;
     if (GetOwningArena() == other->GetOwningArena()) {
       InternalSwap(other);
@@ -269,7 +303,7 @@ class HelloRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(HelloRequest* other) {
+  void UnsafeArenaSwap(DisplaySetting* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -277,17 +311,17 @@ class HelloRequest final :
 
   // implements Message ----------------------------------------------
 
-  inline HelloRequest* New() const final {
-    return new HelloRequest();
+  inline DisplaySetting* New() const final {
+    return new DisplaySetting();
   }
 
-  HelloRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<HelloRequest>(arena);
+  DisplaySetting* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DisplaySetting>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const HelloRequest& from);
+  void CopyFrom(const DisplaySetting& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const HelloRequest& from);
+  void MergeFrom(const DisplaySetting& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to, const ::PROTOBUF_NAMESPACE_ID::Message&from);
   public:
@@ -304,13 +338,13 @@ class HelloRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HelloRequest* other);
+  void InternalSwap(DisplaySetting* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "helloworld.HelloRequest";
+    return "commondata.DisplaySetting";
   }
   protected:
-  explicit HelloRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit DisplaySetting(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -327,174 +361,46 @@ class HelloRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 1,
+    kThemeFieldNumber = 1,
+    kFontsizeFieldNumber = 2,
   };
-  // string name = 1;
-  void clear_name();
-  const std::string& name() const;
+  // string theme = 1;
+  void clear_theme();
+  const std::string& theme() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_MUST_USE_RESULT std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_theme(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_theme();
+  PROTOBUF_MUST_USE_RESULT std::string* release_theme();
+  void set_allocated_theme(std::string* theme);
   private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
+  const std::string& _internal_theme() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_theme(const std::string& value);
+  std::string* _internal_mutable_theme();
   public:
 
-  // @@protoc_insertion_point(class_scope:helloworld.HelloRequest)
+  // string fontsize = 2;
+  void clear_fontsize();
+  const std::string& fontsize() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_fontsize(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_fontsize();
+  PROTOBUF_MUST_USE_RESULT std::string* release_fontsize();
+  void set_allocated_fontsize(std::string* fontsize);
+  private:
+  const std::string& _internal_fontsize() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_fontsize(const std::string& value);
+  std::string* _internal_mutable_fontsize();
+  public:
+
+  // @@protoc_insertion_point(class_scope:commondata.DisplaySetting)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_test_2eproto;
-};
-// -------------------------------------------------------------------
-
-class HelloReply final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:helloworld.HelloReply) */ {
- public:
-  inline HelloReply() : HelloReply(nullptr) {}
-  ~HelloReply() override;
-  explicit constexpr HelloReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  HelloReply(const HelloReply& from);
-  HelloReply(HelloReply&& from) noexcept
-    : HelloReply() {
-    *this = ::std::move(from);
-  }
-
-  inline HelloReply& operator=(const HelloReply& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline HelloReply& operator=(HelloReply&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const HelloReply& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const HelloReply* internal_default_instance() {
-    return reinterpret_cast<const HelloReply*>(
-               &_HelloReply_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(HelloReply& a, HelloReply& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(HelloReply* other) {
-    if (other == this) return;
-    if (GetOwningArena() == other->GetOwningArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(HelloReply* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline HelloReply* New() const final {
-    return new HelloReply();
-  }
-
-  HelloReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<HelloReply>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const HelloReply& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const HelloReply& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to, const ::PROTOBUF_NAMESPACE_ID::Message&from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(HelloReply* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "helloworld.HelloReply";
-  }
-  protected:
-  explicit HelloReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMessageFieldNumber = 1,
-  };
-  // string message = 1;
-  void clear_message();
-  const std::string& message() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_message(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_message();
-  PROTOBUF_MUST_USE_RESULT std::string* release_message();
-  void set_allocated_message(std::string* message);
-  private:
-  const std::string& _internal_message() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(const std::string& value);
-  std::string* _internal_mutable_message();
-  public:
-
-  // @@protoc_insertion_point(class_scope:helloworld.HelloReply)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr theme_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fontsize_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_test_2eproto;
 };
@@ -507,126 +413,240 @@ class HelloReply final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Test1
+// SystemInfo
 
-// fixed32 TestData = 1;
-inline void Test1::clear_testdata() {
-  testdata_ = 0u;
+// string version = 1;
+inline void SystemInfo::clear_version() {
+  version_.ClearToEmpty();
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Test1::_internal_testdata() const {
-  return testdata_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::uint32 Test1::testdata() const {
-  // @@protoc_insertion_point(field_get:helloworld.Test1.TestData)
-  return _internal_testdata();
-}
-inline void Test1::_internal_set_testdata(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
-  testdata_ = value;
-}
-inline void Test1::set_testdata(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _internal_set_testdata(value);
-  // @@protoc_insertion_point(field_set:helloworld.Test1.TestData)
-}
-
-// -------------------------------------------------------------------
-
-// HelloRequest
-
-// string name = 1;
-inline void HelloRequest::clear_name() {
-  name_.ClearToEmpty();
-}
-inline const std::string& HelloRequest::name() const {
-  // @@protoc_insertion_point(field_get:helloworld.HelloRequest.name)
-  return _internal_name();
+inline const std::string& SystemInfo::version() const {
+  // @@protoc_insertion_point(field_get:commondata.SystemInfo.version)
+  return _internal_version();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void HelloRequest::set_name(ArgT0&& arg0, ArgT... args) {
+void SystemInfo::set_version(ArgT0&& arg0, ArgT... args) {
  
- name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:helloworld.HelloRequest.name)
+ version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.SystemInfo.version)
 }
-inline std::string* HelloRequest::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:helloworld.HelloRequest.name)
+inline std::string* SystemInfo::mutable_version() {
+  std::string* _s = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:commondata.SystemInfo.version)
   return _s;
 }
-inline const std::string& HelloRequest::_internal_name() const {
-  return name_.Get();
+inline const std::string& SystemInfo::_internal_version() const {
+  return version_.Get();
 }
-inline void HelloRequest::_internal_set_name(const std::string& value) {
+inline void SystemInfo::_internal_set_version(const std::string& value) {
   
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  version_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* HelloRequest::_internal_mutable_name() {
+inline std::string* SystemInfo::_internal_mutable_version() {
   
-  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return version_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* HelloRequest::release_name() {
-  // @@protoc_insertion_point(field_release:helloworld.HelloRequest.name)
-  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* SystemInfo::release_version() {
+  // @@protoc_insertion_point(field_release:commondata.SystemInfo.version)
+  return version_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void HelloRequest::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void SystemInfo::set_allocated_version(std::string* version) {
+  if (version != nullptr) {
     
   } else {
     
   }
-  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+  version_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), version,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:helloworld.HelloRequest.name)
+  // @@protoc_insertion_point(field_set_allocated:commondata.SystemInfo.version)
 }
 
-// -------------------------------------------------------------------
-
-// HelloReply
-
-// string message = 1;
-inline void HelloReply::clear_message() {
-  message_.ClearToEmpty();
+// string model = 2;
+inline void SystemInfo::clear_model() {
+  model_.ClearToEmpty();
 }
-inline const std::string& HelloReply::message() const {
-  // @@protoc_insertion_point(field_get:helloworld.HelloReply.message)
-  return _internal_message();
+inline const std::string& SystemInfo::model() const {
+  // @@protoc_insertion_point(field_get:commondata.SystemInfo.model)
+  return _internal_model();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void HelloReply::set_message(ArgT0&& arg0, ArgT... args) {
+void SystemInfo::set_model(ArgT0&& arg0, ArgT... args) {
  
- message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:helloworld.HelloReply.message)
+ model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.SystemInfo.model)
 }
-inline std::string* HelloReply::mutable_message() {
-  std::string* _s = _internal_mutable_message();
-  // @@protoc_insertion_point(field_mutable:helloworld.HelloReply.message)
+inline std::string* SystemInfo::mutable_model() {
+  std::string* _s = _internal_mutable_model();
+  // @@protoc_insertion_point(field_mutable:commondata.SystemInfo.model)
   return _s;
 }
-inline const std::string& HelloReply::_internal_message() const {
-  return message_.Get();
+inline const std::string& SystemInfo::_internal_model() const {
+  return model_.Get();
 }
-inline void HelloReply::_internal_set_message(const std::string& value) {
+inline void SystemInfo::_internal_set_model(const std::string& value) {
   
-  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* HelloReply::_internal_mutable_message() {
+inline std::string* SystemInfo::_internal_mutable_model() {
   
-  return message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return model_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* HelloReply::release_message() {
-  // @@protoc_insertion_point(field_release:helloworld.HelloReply.message)
-  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* SystemInfo::release_model() {
+  // @@protoc_insertion_point(field_release:commondata.SystemInfo.model)
+  return model_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void HelloReply::set_allocated_message(std::string* message) {
-  if (message != nullptr) {
+inline void SystemInfo::set_allocated_model(std::string* model) {
+  if (model != nullptr) {
     
   } else {
     
   }
-  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
+  model_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), model,
       GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:helloworld.HelloReply.message)
+  // @@protoc_insertion_point(field_set_allocated:commondata.SystemInfo.model)
+}
+
+// string region = 3;
+inline void SystemInfo::clear_region() {
+  region_.ClearToEmpty();
+}
+inline const std::string& SystemInfo::region() const {
+  // @@protoc_insertion_point(field_get:commondata.SystemInfo.region)
+  return _internal_region();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SystemInfo::set_region(ArgT0&& arg0, ArgT... args) {
+ 
+ region_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.SystemInfo.region)
+}
+inline std::string* SystemInfo::mutable_region() {
+  std::string* _s = _internal_mutable_region();
+  // @@protoc_insertion_point(field_mutable:commondata.SystemInfo.region)
+  return _s;
+}
+inline const std::string& SystemInfo::_internal_region() const {
+  return region_.Get();
+}
+inline void SystemInfo::_internal_set_region(const std::string& value) {
+  
+  region_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* SystemInfo::_internal_mutable_region() {
+  
+  return region_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* SystemInfo::release_region() {
+  // @@protoc_insertion_point(field_release:commondata.SystemInfo.region)
+  return region_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void SystemInfo::set_allocated_region(std::string* region) {
+  if (region != nullptr) {
+    
+  } else {
+    
+  }
+  region_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), region,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:commondata.SystemInfo.region)
+}
+
+// -------------------------------------------------------------------
+
+// DisplaySetting
+
+// string theme = 1;
+inline void DisplaySetting::clear_theme() {
+  theme_.ClearToEmpty();
+}
+inline const std::string& DisplaySetting::theme() const {
+  // @@protoc_insertion_point(field_get:commondata.DisplaySetting.theme)
+  return _internal_theme();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DisplaySetting::set_theme(ArgT0&& arg0, ArgT... args) {
+ 
+ theme_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.DisplaySetting.theme)
+}
+inline std::string* DisplaySetting::mutable_theme() {
+  std::string* _s = _internal_mutable_theme();
+  // @@protoc_insertion_point(field_mutable:commondata.DisplaySetting.theme)
+  return _s;
+}
+inline const std::string& DisplaySetting::_internal_theme() const {
+  return theme_.Get();
+}
+inline void DisplaySetting::_internal_set_theme(const std::string& value) {
+  
+  theme_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::_internal_mutable_theme() {
+  
+  return theme_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::release_theme() {
+  // @@protoc_insertion_point(field_release:commondata.DisplaySetting.theme)
+  return theme_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DisplaySetting::set_allocated_theme(std::string* theme) {
+  if (theme != nullptr) {
+    
+  } else {
+    
+  }
+  theme_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), theme,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:commondata.DisplaySetting.theme)
+}
+
+// string fontsize = 2;
+inline void DisplaySetting::clear_fontsize() {
+  fontsize_.ClearToEmpty();
+}
+inline const std::string& DisplaySetting::fontsize() const {
+  // @@protoc_insertion_point(field_get:commondata.DisplaySetting.fontsize)
+  return _internal_fontsize();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DisplaySetting::set_fontsize(ArgT0&& arg0, ArgT... args) {
+ 
+ fontsize_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.DisplaySetting.fontsize)
+}
+inline std::string* DisplaySetting::mutable_fontsize() {
+  std::string* _s = _internal_mutable_fontsize();
+  // @@protoc_insertion_point(field_mutable:commondata.DisplaySetting.fontsize)
+  return _s;
+}
+inline const std::string& DisplaySetting::_internal_fontsize() const {
+  return fontsize_.Get();
+}
+inline void DisplaySetting::_internal_set_fontsize(const std::string& value) {
+  
+  fontsize_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::_internal_mutable_fontsize() {
+  
+  return fontsize_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::release_fontsize() {
+  // @@protoc_insertion_point(field_release:commondata.DisplaySetting.fontsize)
+  return fontsize_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DisplaySetting::set_allocated_fontsize(std::string* fontsize) {
+  if (fontsize != nullptr) {
+    
+  } else {
+    
+  }
+  fontsize_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), fontsize,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:commondata.DisplaySetting.fontsize)
 }
 
 #ifdef __GNUC__
@@ -634,12 +654,10 @@ inline void HelloReply::set_allocated_message(std::string* message) {
 #endif  // __GNUC__
 // -------------------------------------------------------------------
 
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace helloworld
+}  // namespace commondata
 
 // @@protoc_insertion_point(global_scope)
 

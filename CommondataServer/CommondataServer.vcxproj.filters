@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Proto">
-      <UniqueIdentifier>{b11c7a86-a6f9-4eac-aff6-e62cc581fb0e}</UniqueIdentifier>
+      <UniqueIdentifier>{ab6ccaf6-496f-4e65-bd93-576d03d7ca35}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

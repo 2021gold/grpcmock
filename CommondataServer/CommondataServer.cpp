@@ -6,40 +6,45 @@
 #include <string>
 #include <tchar.h>
 #include <wchar.h>
+#include <fstream>
+#include <iomanip>
+
 
 #include <grpcpp/grpcpp.h>
-
+#include "../../json/single_include/nlohmann/json.hpp"
 #include <grpcpp/health_check_service_interface.h>
-
 #include "../CommondataProto/ProtoOutput/cpp/test.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using helloworld::Greeter;
-using helloworld::HelloReply;
-using helloworld::HelloRequest;
+using commondata::CommondataService;
+using nlohmann::json;
 
 #define MAX_BUFFER 255
+#define MAX_LENGTH 100
+#define PATH_TO_INI L"..\\Data\\config.ini"
+#define ERROR_MESSAGE L"fail while retrieving file"
+#define PATH_TO_JSON L"..\\Data\\data.json"
 
-std::string getDataIniFile(LPCWSTR appName, LPCWSTR keyName)
+std::string getDataIniFile(const LPCWSTR appName, const LPCWSTR keyName)
 {
 	// read ini file
-	wchar_t address_wc[100];
-	char address_c[100];
+	wchar_t address_wc[MAX_LENGTH];
+	char address_c[MAX_LENGTH];
 	std::string result;
 
 	GetPrivateProfileString(
 		appName,
 		keyName,
-		L"fail while retrieving file",
+		ERROR_MESSAGE,
 		address_wc,
-		100,
-		L"..\\Data\\config.ini"
+		MAX_LENGTH,
+		PATH_TO_INI
 
 	);
-	wcstombs(address_c, address_wc, MAX_BUFFER);
+	wcstombs(address_c, address_wc, MAX_LENGTH);
 	std::cout << "ini : " << address_c << std::endl;
 
 	for (int i = 0; i < sizeof(address_c); i++)
@@ -54,20 +59,86 @@ std::string getDataIniFile(LPCWSTR appName, LPCWSTR keyName)
 	return result;
 }
 
+std::string readJsonFile(const std::string &key)
+{
+	// read a JSON file
+	std::ifstream i(PATH_TO_JSON);
+	nlohmann::json js = json::parse(i);
+	return std::string(js[key]);
+}
 
+void writeJsonFile(nlohmann::json &j)
+{
+	// write prettified JSON to another file
+	std::ofstream o(L"..\\Data\\data.json");
+	o << std::setw(4) << j << std::endl;
+}
 
-class GreeterServiceImpl final : public Greeter::Service {
-	Status SayHello(ServerContext* context, const HelloRequest* request,
-		HelloReply* reply) override {
-		std::string prefix("Hello ");
-		reply->set_message(prefix + request->name());
+class CommonDataServiceImpl final : public CommondataService::Service {
+	
+public :
+	CommonDataServiceImpl() {
+
+		m_model = readJsonFile("model");
+		m_version = readJsonFile("version");
+		m_region = readJsonFile("region");
+	
+	}
+
+private :
+	::grpc::Status GetSystemInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::SystemInfo* response) override
+	{
+		
+		response->set_model(m_model);
+		response->set_version(m_version);
+		response->set_region(m_region);
+
 		return Status::OK;
 	}
+	::grpc::Status SetSystemInfo(::grpc::ServerContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response) override
+	{
+		m_model = request->model();
+		m_version = request->version();
+		m_region = request->region();
+		std::ifstream i(PATH_TO_JSON);
+		nlohmann::json js = json::parse(i);
+		js["model"] = m_model;
+		js["version"] = m_version;
+		js["region"] = m_region;
+
+		writeJsonFile(js);
+		return Status::OK;
+
+	}
+
+	::grpc::Status GetDisplaySetting(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response) override
+	{
+		return Status::OK;
+	}
+	::grpc::Status TestDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) override
+	{
+		return Status::OK;
+	}
+	::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response) override
+	{
+
+		response->set_model(m_model);
+		response->set_version(m_version);
+		response->set_region(m_region);
+
+		return Status::OK;
+	}
+
+private :
+
+	std::string m_model;
+	std::string m_version;
+	std::string m_region;
 };
 
 void RunServer(const std::string &server_address) {
 	
-	GreeterServiceImpl service;
+	CommonDataServiceImpl service;
 
 	grpc::EnableDefaultHealthCheckService(true);
 	//grpc::reflection::InitProtoReflectionServerBuilderPlugin();
@@ -89,15 +160,17 @@ void RunServer(const std::string &server_address) {
 
 int main()
 {
-	std::cout << "Hello World Server!\n";
-	std::string address_str = getDataIniFile(L"config", L"address");
-	std::string port_str = getDataIniFile(L"config", L"port");
-	//std::string server_address("0.0.0.0:50051");
+	std::cout << "Hello  Server!\n";
+	
+	/**** Read address port ****/
 
-	std::string server_address;
+	std::string server_address = getDataIniFile(L"config", L"address");
+	std::string port_str = getDataIniFile(L"config", L"port");
 	//target_str = "localhost:50051";
-	server_address = address_str.append(":").append(port_str);
+	server_address = server_address.append(":").append(port_str);
 	std::cout << "serveraddress : " << server_address << std::endl;
+
+	/**** Run server ****/
 
 	RunServer(server_address);
 }

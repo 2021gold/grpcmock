@@ -7,13 +7,10 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Helloworld {
-  /// <summary>
-  /// The greeting service definition.
-  /// </summary>
-  public static partial class Greeter
+namespace Commondata {
+  public static partial class CommondataService
   {
-    static readonly string __ServiceName = "helloworld.Greeter";
+    static readonly string __ServiceName = "commondata.CommondataService";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -49,132 +46,240 @@ namespace Helloworld {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Helloworld.HelloRequest> __Marshaller_helloworld_HelloRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Helloworld.HelloRequest.Parser));
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Helloworld.HelloReply> __Marshaller_helloworld_HelloReply = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Helloworld.HelloReply.Parser));
+    static readonly grpc::Marshaller<global::Commondata.SystemInfo> __Marshaller_commondata_SystemInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Commondata.SystemInfo.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Commondata.DisplaySetting> __Marshaller_commondata_DisplaySetting = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Commondata.DisplaySetting.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Helloworld.HelloRequest, global::Helloworld.HelloReply> __Method_SayHello = new grpc::Method<global::Helloworld.HelloRequest, global::Helloworld.HelloReply>(
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.SystemInfo> __Method_GetSystemInfo = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.SystemInfo>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "SayHello",
-        __Marshaller_helloworld_HelloRequest,
-        __Marshaller_helloworld_HelloReply);
+        "GetSystemInfo",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_commondata_SystemInfo);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Commondata.SystemInfo, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetSystemInfo = new grpc::Method<global::Commondata.SystemInfo, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SetSystemInfo",
+        __Marshaller_commondata_SystemInfo,
+        __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.DisplaySetting> __Method_GetDisplaySetting = new grpc::Method<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.DisplaySetting>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDisplaySetting",
+        __Marshaller_google_protobuf_Empty,
+        __Marshaller_commondata_DisplaySetting);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty> __Method_TestDisplaySetting = new grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TestDisplaySetting",
+        __Marshaller_commondata_DisplaySetting,
+        __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Commondata.DisplaySetting, global::Commondata.SystemInfo> __Method_GetSystemInfoDisplay = new grpc::Method<global::Commondata.DisplaySetting, global::Commondata.SystemInfo>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSystemInfoDisplay",
+        __Marshaller_commondata_DisplaySetting,
+        __Marshaller_commondata_SystemInfo);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Helloworld.TestReflection.Descriptor.Services[0]; }
+      get { return global::Commondata.TestReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Greeter</summary>
-    [grpc::BindServiceMethod(typeof(Greeter), "BindService")]
-    public abstract partial class GreeterBase
+    /// <summary>Base class for server-side implementations of CommondataService</summary>
+    [grpc::BindServiceMethod(typeof(CommondataService), "BindService")]
+    public abstract partial class CommondataServiceBase
     {
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Helloworld.HelloReply> SayHello(global::Helloworld.HelloRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Commondata.SystemInfo> GetSystemInfo(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> SetSystemInfo(global::Commondata.SystemInfo request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Commondata.DisplaySetting> GetDisplaySetting(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Commondata.SystemInfo> GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for Greeter</summary>
-    public partial class GreeterClient : grpc::ClientBase<GreeterClient>
+    /// <summary>Client for CommondataService</summary>
+    public partial class CommondataServiceClient : grpc::ClientBase<CommondataServiceClient>
     {
-      /// <summary>Creates a new client for Greeter</summary>
+      /// <summary>Creates a new client for CommondataService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public GreeterClient(grpc::ChannelBase channel) : base(channel)
+      public CommondataServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for Greeter that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for CommondataService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public GreeterClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public CommondataServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected GreeterClient() : base()
+      protected CommondataServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected GreeterClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected CommondataServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Helloworld.HelloReply SayHello(global::Helloworld.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Commondata.SystemInfo GetSystemInfo(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHello(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetSystemInfo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Helloworld.HelloReply SayHello(global::Helloworld.HelloRequest request, grpc::CallOptions options)
+      public virtual global::Commondata.SystemInfo GetSystemInfo(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_GetSystemInfo, null, options, request);
       }
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Helloworld.HelloReply> SayHelloAsync(global::Helloworld.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SayHelloAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetSystemInfoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      /// <summary>
-      /// Sends a greeting
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Helloworld.HelloReply> SayHelloAsync(global::Helloworld.HelloRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_SayHello, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_GetSystemInfo, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetSystemInfo(global::Commondata.SystemInfo request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetSystemInfo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetSystemInfo(global::Commondata.SystemInfo request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SetSystemInfo, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetSystemInfoAsync(global::Commondata.SystemInfo request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetSystemInfoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetSystemInfoAsync(global::Commondata.SystemInfo request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SetSystemInfo, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Commondata.DisplaySetting GetDisplaySetting(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDisplaySetting(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Commondata.DisplaySetting GetDisplaySetting(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDisplaySetting, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Commondata.DisplaySetting> GetDisplaySettingAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDisplaySettingAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Commondata.DisplaySetting> GetDisplaySettingAsync(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDisplaySetting, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TestDisplaySetting(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TestDisplaySetting, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TestDisplaySettingAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TestDisplaySetting, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Commondata.SystemInfo GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSystemInfoDisplay(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Commondata.SystemInfo GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetSystemInfoDisplay, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoDisplayAsync(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetSystemInfoDisplayAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoDisplayAsync(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetSystemInfoDisplay, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      protected override GreeterClient NewInstance(ClientBaseConfiguration configuration)
+      protected override CommondataServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new GreeterClient(configuration);
+        return new CommondataServiceClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(GreeterBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(CommondataServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_SayHello, serviceImpl.SayHello).Build();
+          .AddMethod(__Method_GetSystemInfo, serviceImpl.GetSystemInfo)
+          .AddMethod(__Method_SetSystemInfo, serviceImpl.SetSystemInfo)
+          .AddMethod(__Method_GetDisplaySetting, serviceImpl.GetDisplaySetting)
+          .AddMethod(__Method_TestDisplaySetting, serviceImpl.TestDisplaySetting)
+          .AddMethod(__Method_GetSystemInfoDisplay, serviceImpl.GetSystemInfoDisplay).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -182,9 +287,13 @@ namespace Helloworld {
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, GreeterBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, CommondataServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_SayHello, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Helloworld.HelloRequest, global::Helloworld.HelloReply>(serviceImpl.SayHello));
+      serviceBinder.AddMethod(__Method_GetSystemInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.SystemInfo>(serviceImpl.GetSystemInfo));
+      serviceBinder.AddMethod(__Method_SetSystemInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.SystemInfo, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.SetSystemInfo));
+      serviceBinder.AddMethod(__Method_GetDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.DisplaySetting>(serviceImpl.GetDisplaySetting));
+      serviceBinder.AddMethod(__Method_TestDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.TestDisplaySetting));
+      serviceBinder.AddMethod(__Method_GetSystemInfoDisplay, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Commondata.SystemInfo>(serviceImpl.GetSystemInfoDisplay));
     }
 
   }

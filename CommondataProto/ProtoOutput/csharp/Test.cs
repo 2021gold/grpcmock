@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Helloworld {
+namespace Commondata {
 
   /// <summary>Holder for reflection information generated from test.proto</summary>
   public static partial class TestReflection {
@@ -24,38 +24,45 @@ namespace Helloworld {
     static TestReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp0ZXN0LnByb3RvEgpoZWxsb3dvcmxkIhkKBVRlc3QxEhAKCFRlc3REYXRh",
-            "GAEgASgHIhwKDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEgASgJIh0KCkhlbGxv",
-            "UmVwbHkSDwoHbWVzc2FnZRgBIAEoCTJJCgdHcmVldGVyEj4KCFNheUhlbGxv",
-            "EhguaGVsbG93b3JsZC5IZWxsb1JlcXVlc3QaFi5oZWxsb3dvcmxkLkhlbGxv",
-            "UmVwbHkiAGIGcHJvdG8z"));
+            "Cgp0ZXN0LnByb3RvEgpjb21tb25kYXRhGhtnb29nbGUvcHJvdG9idWYvZW1w",
+            "dHkucHJvdG8iPAoKU3lzdGVtSW5mbxIPCgd2ZXJzaW9uGAEgASgJEg0KBW1v",
+            "ZGVsGAIgASgJEg4KBnJlZ2lvbhgDIAEoCSIxCg5EaXNwbGF5U2V0dGluZxIN",
+            "CgV0aGVtZRgBIAEoCRIQCghmb250c2l6ZRgCIAEoCTL+AgoRQ29tbW9uZGF0",
+            "YVNlcnZpY2USQQoNR2V0U3lzdGVtSW5mbxIWLmdvb2dsZS5wcm90b2J1Zi5F",
+            "bXB0eRoWLmNvbW1vbmRhdGEuU3lzdGVtSW5mbyIAEkEKDVNldFN5c3RlbUlu",
+            "Zm8SFi5jb21tb25kYXRhLlN5c3RlbUluZm8aFi5nb29nbGUucHJvdG9idWYu",
+            "RW1wdHkiABJJChFHZXREaXNwbGF5U2V0dGluZxIWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eRoaLmNvbW1vbmRhdGEuRGlzcGxheVNldHRpbmciABJKChJUZXN0",
+            "RGlzcGxheVNldHRpbmcSGi5jb21tb25kYXRhLkRpc3BsYXlTZXR0aW5nGhYu",
+            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5IgASTAoUR2V0U3lzdGVtSW5mb0Rpc3Bs",
+            "YXkSGi5jb21tb25kYXRhLkRpc3BsYXlTZXR0aW5nGhYuY29tbW9uZGF0YS5T",
+            "eXN0ZW1JbmZvIgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.Test1), global::Helloworld.Test1.Parser, new[]{ "TestData" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloRequest), global::Helloworld.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Helloworld.HelloReply), global::Helloworld.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Commondata.SystemInfo), global::Commondata.SystemInfo.Parser, new[]{ "Version", "Model", "Region" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Commondata.DisplaySetting), global::Commondata.DisplaySetting.Parser, new[]{ "Theme", "Fontsize" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class Test1 : pb::IMessage<Test1>
+  public sealed partial class SystemInfo : pb::IMessage<SystemInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<Test1> _parser = new pb::MessageParser<Test1>(() => new Test1());
+    private static readonly pb::MessageParser<SystemInfo> _parser = new pb::MessageParser<SystemInfo>(() => new SystemInfo());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<Test1> Parser { get { return _parser; } }
+    public static pb::MessageParser<SystemInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.TestReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Commondata.TestReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -66,7 +73,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Test1() {
+    public SystemInfo() {
       OnConstruction();
     }
 
@@ -74,45 +81,73 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Test1(Test1 other) : this() {
-      testData_ = other.testData_;
+    public SystemInfo(SystemInfo other) : this() {
+      version_ = other.version_;
+      model_ = other.model_;
+      region_ = other.region_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public Test1 Clone() {
-      return new Test1(this);
+    public SystemInfo Clone() {
+      return new SystemInfo(this);
     }
 
-    /// <summary>Field number for the "TestData" field.</summary>
-    public const int TestDataFieldNumber = 1;
-    private uint testData_;
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 1;
+    private string version_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TestData {
-      get { return testData_; }
+    public string Version {
+      get { return version_; }
       set {
-        testData_ = value;
+        version_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "model" field.</summary>
+    public const int ModelFieldNumber = 2;
+    private string model_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Model {
+      get { return model_; }
+      set {
+        model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "region" field.</summary>
+    public const int RegionFieldNumber = 3;
+    private string region_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Region {
+      get { return region_; }
+      set {
+        region_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as Test1);
+      return Equals(other as SystemInfo);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(Test1 other) {
+    public bool Equals(SystemInfo other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (TestData != other.TestData) return false;
+      if (Version != other.Version) return false;
+      if (Model != other.Model) return false;
+      if (Region != other.Region) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -120,7 +155,9 @@ namespace Helloworld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (TestData != 0) hash ^= TestData.GetHashCode();
+      if (Version.Length != 0) hash ^= Version.GetHashCode();
+      if (Model.Length != 0) hash ^= Model.GetHashCode();
+      if (Region.Length != 0) hash ^= Region.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -139,9 +176,17 @@ namespace Helloworld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (TestData != 0) {
-        output.WriteRawTag(13);
-        output.WriteFixed32(TestData);
+      if (Version.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Version);
+      }
+      if (Model.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Model);
+      }
+      if (Region.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Region);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -153,9 +198,17 @@ namespace Helloworld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (TestData != 0) {
-        output.WriteRawTag(13);
-        output.WriteFixed32(TestData);
+      if (Version.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Version);
+      }
+      if (Model.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Model);
+      }
+      if (Region.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Region);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -167,8 +220,14 @@ namespace Helloworld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (TestData != 0) {
-        size += 1 + 4;
+      if (Version.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Version);
+      }
+      if (Model.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Model);
+      }
+      if (Region.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Region);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -178,12 +237,18 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(Test1 other) {
+    public void MergeFrom(SystemInfo other) {
       if (other == null) {
         return;
       }
-      if (other.TestData != 0) {
-        TestData = other.TestData;
+      if (other.Version.Length != 0) {
+        Version = other.Version;
+      }
+      if (other.Model.Length != 0) {
+        Model = other.Model;
+      }
+      if (other.Region.Length != 0) {
+        Region = other.Region;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -200,8 +265,16 @@ namespace Helloworld {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 13: {
-            TestData = input.ReadFixed32();
+          case 10: {
+            Version = input.ReadString();
+            break;
+          }
+          case 18: {
+            Model = input.ReadString();
+            break;
+          }
+          case 26: {
+            Region = input.ReadString();
             break;
           }
         }
@@ -219,8 +292,16 @@ namespace Helloworld {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 13: {
-            TestData = input.ReadFixed32();
+          case 10: {
+            Version = input.ReadString();
+            break;
+          }
+          case 18: {
+            Model = input.ReadString();
+            break;
+          }
+          case 26: {
+            Region = input.ReadString();
             break;
           }
         }
@@ -230,24 +311,21 @@ namespace Helloworld {
 
   }
 
-  /// <summary>
-  /// The request message containing the user's name.
-  /// </summary>
-  public sealed partial class HelloRequest : pb::IMessage<HelloRequest>
+  public sealed partial class DisplaySetting : pb::IMessage<DisplaySetting>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
+    private static readonly pb::MessageParser<DisplaySetting> _parser = new pb::MessageParser<DisplaySetting>(() => new DisplaySetting());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<DisplaySetting> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.TestReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Commondata.TestReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -258,7 +336,7 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest() {
+    public DisplaySetting() {
       OnConstruction();
     }
 
@@ -266,45 +344,59 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest(HelloRequest other) : this() {
-      name_ = other.name_;
+    public DisplaySetting(DisplaySetting other) : this() {
+      theme_ = other.theme_;
+      fontsize_ = other.fontsize_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloRequest Clone() {
-      return new HelloRequest(this);
+    public DisplaySetting Clone() {
+      return new DisplaySetting(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
+    /// <summary>Field number for the "theme" field.</summary>
+    public const int ThemeFieldNumber = 1;
+    private string theme_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Name {
-      get { return name_; }
+    public string Theme {
+      get { return theme_; }
       set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        theme_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "fontsize" field.</summary>
+    public const int FontsizeFieldNumber = 2;
+    private string fontsize_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Fontsize {
+      get { return fontsize_; }
+      set {
+        fontsize_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as HelloRequest);
+      return Equals(other as DisplaySetting);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(HelloRequest other) {
+    public bool Equals(DisplaySetting other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
+      if (Theme != other.Theme) return false;
+      if (Fontsize != other.Fontsize) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -312,7 +404,8 @@ namespace Helloworld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Theme.Length != 0) hash ^= Theme.GetHashCode();
+      if (Fontsize.Length != 0) hash ^= Fontsize.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -331,9 +424,13 @@ namespace Helloworld {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Name.Length != 0) {
+      if (Theme.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Theme);
+      }
+      if (Fontsize.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Fontsize);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -345,9 +442,13 @@ namespace Helloworld {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Name.Length != 0) {
+      if (Theme.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Name);
+        output.WriteString(Theme);
+      }
+      if (Fontsize.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Fontsize);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -359,8 +460,11 @@ namespace Helloworld {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      if (Theme.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Theme);
+      }
+      if (Fontsize.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Fontsize);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -370,12 +474,15 @@ namespace Helloworld {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(HelloRequest other) {
+    public void MergeFrom(DisplaySetting other) {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
+      if (other.Theme.Length != 0) {
+        Theme = other.Theme;
+      }
+      if (other.Fontsize.Length != 0) {
+        Fontsize = other.Fontsize;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -393,7 +500,11 @@ namespace Helloworld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Theme = input.ReadString();
+            break;
+          }
+          case 18: {
+            Fontsize = input.ReadString();
             break;
           }
         }
@@ -412,199 +523,11 @@ namespace Helloworld {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Name = input.ReadString();
+            Theme = input.ReadString();
             break;
           }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  /// <summary>
-  /// The response message containing the greetings
-  /// </summary>
-  public sealed partial class HelloReply : pb::IMessage<HelloReply>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Helloworld.TestReflection.Descriptor.MessageTypes[2]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply(HelloReply other) : this() {
-      message_ = other.message_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public HelloReply Clone() {
-      return new HelloReply(this);
-    }
-
-    /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 1;
-    private string message_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Message {
-      get { return message_; }
-      set {
-        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as HelloReply);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(HelloReply other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Message != other.Message) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Message.Length != 0) hash ^= Message.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Message.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Message);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (Message.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(HelloReply other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Message.Length != 0) {
-        Message = other.Message;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Message = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            Message = input.ReadString();
+          case 18: {
+            Fontsize = input.ReadString();
             break;
           }
         }
