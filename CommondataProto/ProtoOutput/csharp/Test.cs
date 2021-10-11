@@ -26,22 +26,21 @@ namespace Commondata {
           string.Concat(
             "Cgp0ZXN0LnByb3RvEgpjb21tb25kYXRhGhtnb29nbGUvcHJvdG9idWYvZW1w",
             "dHkucHJvdG8iPAoKU3lzdGVtSW5mbxIPCgd2ZXJzaW9uGAEgASgJEg0KBW1v",
-            "ZGVsGAIgASgJEg4KBnJlZ2lvbhgDIAEoCSIxCg5EaXNwbGF5U2V0dGluZxIN",
-            "CgV0aGVtZRgBIAEoCRIQCghmb250c2l6ZRgCIAEoCTL+AgoRQ29tbW9uZGF0",
-            "YVNlcnZpY2USQQoNR2V0U3lzdGVtSW5mbxIWLmdvb2dsZS5wcm90b2J1Zi5F",
-            "bXB0eRoWLmNvbW1vbmRhdGEuU3lzdGVtSW5mbyIAEkEKDVNldFN5c3RlbUlu",
-            "Zm8SFi5jb21tb25kYXRhLlN5c3RlbUluZm8aFi5nb29nbGUucHJvdG9idWYu",
-            "RW1wdHkiABJJChFHZXREaXNwbGF5U2V0dGluZxIWLmdvb2dsZS5wcm90b2J1",
-            "Zi5FbXB0eRoaLmNvbW1vbmRhdGEuRGlzcGxheVNldHRpbmciABJKChJUZXN0",
-            "RGlzcGxheVNldHRpbmcSGi5jb21tb25kYXRhLkRpc3BsYXlTZXR0aW5nGhYu",
-            "Z29vZ2xlLnByb3RvYnVmLkVtcHR5IgASTAoUR2V0U3lzdGVtSW5mb0Rpc3Bs",
-            "YXkSGi5jb21tb25kYXRhLkRpc3BsYXlTZXR0aW5nGhYuY29tbW9uZGF0YS5T",
-            "eXN0ZW1JbmZvIgBiBnByb3RvMw=="));
+            "ZGVsGAIgASgJEg4KBnJlZ2lvbhgDIAEoCSJDCg5EaXNwbGF5U2V0dGluZxIN",
+            "CgV0aGVtZRgBIAEoCRIQCghmb250c2l6ZRgCIAEoCRIQCghsYW5ndWFnZRgD",
+            "IAEoCTKvAgoRQ29tbW9uZGF0YVNlcnZpY2USQQoNR2V0U3lzdGVtSW5mbxIW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoWLmNvbW1vbmRhdGEuU3lzdGVtSW5m",
+            "byIAEkEKDVNldFN5c3RlbUluZm8SFi5jb21tb25kYXRhLlN5c3RlbUluZm8a",
+            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJJChFHZXREaXNwbGF5U2V0dGlu",
+            "ZxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoaLmNvbW1vbmRhdGEuRGlzcGxh",
+            "eVNldHRpbmciABJJChFTZXREaXNwbGF5U2V0dGluZxIaLmNvbW1vbmRhdGEu",
+            "RGlzcGxheVNldHRpbmcaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiAGIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Commondata.SystemInfo), global::Commondata.SystemInfo.Parser, new[]{ "Version", "Model", "Region" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Commondata.DisplaySetting), global::Commondata.DisplaySetting.Parser, new[]{ "Theme", "Fontsize" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Commondata.DisplaySetting), global::Commondata.DisplaySetting.Parser, new[]{ "Theme", "Fontsize", "Language" }, null, null, null, null)
           }));
     }
     #endregion
@@ -347,6 +346,7 @@ namespace Commondata {
     public DisplaySetting(DisplaySetting other) : this() {
       theme_ = other.theme_;
       fontsize_ = other.fontsize_;
+      language_ = other.language_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -380,6 +380,18 @@ namespace Commondata {
       }
     }
 
+    /// <summary>Field number for the "language" field.</summary>
+    public const int LanguageFieldNumber = 3;
+    private string language_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Language {
+      get { return language_; }
+      set {
+        language_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -397,6 +409,7 @@ namespace Commondata {
       }
       if (Theme != other.Theme) return false;
       if (Fontsize != other.Fontsize) return false;
+      if (Language != other.Language) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -406,6 +419,7 @@ namespace Commondata {
       int hash = 1;
       if (Theme.Length != 0) hash ^= Theme.GetHashCode();
       if (Fontsize.Length != 0) hash ^= Fontsize.GetHashCode();
+      if (Language.Length != 0) hash ^= Language.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -432,6 +446,10 @@ namespace Commondata {
         output.WriteRawTag(18);
         output.WriteString(Fontsize);
       }
+      if (Language.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Language);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -450,6 +468,10 @@ namespace Commondata {
         output.WriteRawTag(18);
         output.WriteString(Fontsize);
       }
+      if (Language.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Language);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -465,6 +487,9 @@ namespace Commondata {
       }
       if (Fontsize.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Fontsize);
+      }
+      if (Language.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Language);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -483,6 +508,9 @@ namespace Commondata {
       }
       if (other.Fontsize.Length != 0) {
         Fontsize = other.Fontsize;
+      }
+      if (other.Language.Length != 0) {
+        Language = other.Language;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -507,6 +535,10 @@ namespace Commondata {
             Fontsize = input.ReadString();
             break;
           }
+          case 26: {
+            Language = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -528,6 +560,10 @@ namespace Commondata {
           }
           case 18: {
             Fontsize = input.ReadString();
+            break;
+          }
+          case 26: {
+            Language = input.ReadString();
             break;
           }
         }

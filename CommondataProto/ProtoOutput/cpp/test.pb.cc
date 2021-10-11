@@ -34,7 +34,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT SystemInfoDefaultTypeInternal _
 constexpr DisplaySetting::DisplaySetting(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : theme_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , fontsize_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  , fontsize_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , language_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct DisplaySettingDefaultTypeInternal {
   constexpr DisplaySettingDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -65,6 +66,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_test_2eproto::offsets[] PROTOB
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::commondata::DisplaySetting, theme_),
   PROTOBUF_FIELD_OFFSET(::commondata::DisplaySetting, fontsize_),
+  PROTOBUF_FIELD_OFFSET(::commondata::DisplaySetting, language_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::commondata::SystemInfo)},
@@ -79,25 +81,24 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_test_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\ntest.proto\022\ncommondata\032\033google/protobu"
   "f/empty.proto\"<\n\nSystemInfo\022\017\n\007version\030\001"
-  " \001(\t\022\r\n\005model\030\002 \001(\t\022\016\n\006region\030\003 \001(\t\"1\n\016D"
+  " \001(\t\022\r\n\005model\030\002 \001(\t\022\016\n\006region\030\003 \001(\t\"C\n\016D"
   "isplaySetting\022\r\n\005theme\030\001 \001(\t\022\020\n\010fontsize"
-  "\030\002 \001(\t2\376\002\n\021CommondataService\022A\n\rGetSyste"
-  "mInfo\022\026.google.protobuf.Empty\032\026.commonda"
-  "ta.SystemInfo\"\000\022A\n\rSetSystemInfo\022\026.commo"
-  "ndata.SystemInfo\032\026.google.protobuf.Empty"
-  "\"\000\022I\n\021GetDisplaySetting\022\026.google.protobu"
-  "f.Empty\032\032.commondata.DisplaySetting\"\000\022J\n"
-  "\022TestDisplaySetting\022\032.commondata.Display"
-  "Setting\032\026.google.protobuf.Empty\"\000\022L\n\024Get"
-  "SystemInfoDisplay\022\032.commondata.DisplaySe"
-  "tting\032\026.commondata.SystemInfo\"\000b\006proto3"
+  "\030\002 \001(\t\022\020\n\010language\030\003 \001(\t2\257\002\n\021CommondataS"
+  "ervice\022A\n\rGetSystemInfo\022\026.google.protobu"
+  "f.Empty\032\026.commondata.SystemInfo\"\000\022A\n\rSet"
+  "SystemInfo\022\026.commondata.SystemInfo\032\026.goo"
+  "gle.protobuf.Empty\"\000\022I\n\021GetDisplaySettin"
+  "g\022\026.google.protobuf.Empty\032\032.commondata.D"
+  "isplaySetting\"\000\022I\n\021SetDisplaySetting\022\032.c"
+  "ommondata.DisplaySetting\032\026.google.protob"
+  "uf.Empty\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_test_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_test_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_test_2eproto = {
-  false, false, 559, descriptor_table_protodef_test_2eproto, "test.proto", 
+  false, false, 498, descriptor_table_protodef_test_2eproto, "test.proto", 
   &descriptor_table_test_2eproto_once, descriptor_table_test_2eproto_deps, 1, 2,
   schemas, file_default_instances, TableStruct_test_2eproto::offsets,
   file_level_metadata_test_2eproto, file_level_enum_descriptors_test_2eproto, file_level_service_descriptors_test_2eproto,
@@ -422,12 +423,18 @@ DisplaySetting::DisplaySetting(const DisplaySetting& from)
     fontsize_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_fontsize(), 
       GetArenaForAllocation());
   }
+  language_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_language().empty()) {
+    language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_language(), 
+      GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:commondata.DisplaySetting)
 }
 
 inline void DisplaySetting::SharedCtor() {
 theme_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 fontsize_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+language_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 DisplaySetting::~DisplaySetting() {
@@ -441,6 +448,7 @@ inline void DisplaySetting::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   theme_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   fontsize_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  language_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void DisplaySetting::ArenaDtor(void* object) {
@@ -461,6 +469,7 @@ void DisplaySetting::Clear() {
 
   theme_.ClearToEmpty();
   fontsize_.ClearToEmpty();
+  language_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -485,6 +494,15 @@ const char* DisplaySetting::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
           auto str = _internal_mutable_fontsize();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "commondata.DisplaySetting.fontsize"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string language = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_language();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "commondata.DisplaySetting.language"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -537,6 +555,16 @@ failure:
         2, this->_internal_fontsize(), target);
   }
 
+  // string language = 3;
+  if (!this->_internal_language().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "commondata.DisplaySetting.language");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_language(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -565,6 +593,13 @@ size_t DisplaySetting::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_fontsize());
+  }
+
+  // string language = 3;
+  if (!this->_internal_language().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_language());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -601,6 +636,9 @@ void DisplaySetting::MergeFrom(const DisplaySetting& from) {
   if (!from._internal_fontsize().empty()) {
     _internal_set_fontsize(from._internal_fontsize());
   }
+  if (!from._internal_language().empty()) {
+    _internal_set_language(from._internal_language());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -627,6 +665,11 @@ void DisplaySetting::InternalSwap(DisplaySetting* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &fontsize_, GetArenaForAllocation(),
       &other->fontsize_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &language_, GetArenaForAllocation(),
+      &other->language_, other->GetArenaForAllocation()
   );
 }
 

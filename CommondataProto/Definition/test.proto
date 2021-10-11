@@ -13,8 +13,11 @@ message SystemInfo {
 }
 
 message DisplaySetting {
+
 	  string theme = 1;
 	  string fontsize = 2;
+	  string language = 3;
+
 }
 
 
@@ -23,8 +26,7 @@ service CommondataService {
   rpc GetSystemInfo (google.protobuf.Empty) returns (SystemInfo) {}
   rpc SetSystemInfo (SystemInfo) returns (google.protobuf.Empty) {}
   rpc GetDisplaySetting (google.protobuf.Empty) returns (DisplaySetting) {}
-  rpc TestDisplaySetting (DisplaySetting) returns (google.protobuf.Empty) {}
-  rpc GetSystemInfoDisplay (DisplaySetting) returns (SystemInfo) {}
+  rpc SetDisplaySetting (DisplaySetting) returns (google.protobuf.Empty) {}
 
 }
 

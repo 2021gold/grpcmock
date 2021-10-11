@@ -39,7 +39,7 @@ std::string readJsonFile(const std::string &key)
 void writeJsonFile(nlohmann::json &j)
 {
 	// write prettified JSON to another file
-	std::ofstream o(L"..\\Data\\data.json");
+	std::ofstream o(PATH_TO_JSON);
 	o << std::setw(4) << j << std::endl;
 }
 
@@ -48,10 +48,12 @@ class CommonDataServiceImpl final : public CommondataService::Service {
 public :
 	CommonDataServiceImpl() {
 
-		m_model = readJsonFile("model");
-		m_version = readJsonFile("version");
-		m_region = readJsonFile("region");
-	
+		m_model		= readJsonFile("model");
+		m_version	= readJsonFile("version");
+		m_region	= readJsonFile("region");
+		m_theme		= readJsonFile("theme");
+		m_fontsize	= readJsonFile("fontsize");
+		m_language	= readJsonFile("language");
 	}
 
 private :
@@ -82,19 +84,24 @@ private :
 
 	::grpc::Status GetDisplaySetting(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response) override
 	{
+		response->set_theme(m_theme);
+		response->set_fontsize(m_fontsize);
+		response->set_language(m_language);
 		return Status::OK;
 	}
-	::grpc::Status TestDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) override
+	::grpc::Status SetDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) override
 	{
-		return Status::OK;
-	}
-	::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response) override
-	{
+		m_theme = request->theme();
+		m_fontsize = request->fontsize();
+		m_language = request->language();
 
-		response->set_model(m_model);
-		response->set_version(m_version);
-		response->set_region(m_region);
+		std::ifstream i(PATH_TO_JSON);
+		nlohmann::json j = nlohmann::json::parse(i);
+		j["theme"] = m_theme;
+		j["fontsize"] = m_fontsize;
+		j["language"] = m_language;
 
+		writeJsonFile(j);
 		return Status::OK;
 	}
 
@@ -103,6 +110,9 @@ private :
 	std::string m_model;
 	std::string m_version;
 	std::string m_region;
+	std::string m_theme;
+	std::string m_fontsize;
+	std::string m_language;
 };
 
 void RunServer(const std::string &server_address) {

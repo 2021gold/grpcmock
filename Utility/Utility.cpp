@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include "atlstr.h"
 
 std::string getDataIniFile(const LPCWSTR appName, const LPCWSTR keyName)
 {
@@ -28,7 +29,7 @@ std::string getDataIniFile(const LPCWSTR appName, const LPCWSTR keyName)
 	);
 	size_t output_length;
 	wcstombs_s(&output_length, address_c, MAX_LENGTH, address_wc, MAX_LENGTH);
-	std::cout << keyName << "  : " << address_c << std::endl;
+	std::cout << "target : " << address_c << std::endl;
 
 	for (int i = 0; i < sizeof(address_c); i++)
 	{

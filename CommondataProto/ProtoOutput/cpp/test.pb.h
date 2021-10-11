@@ -363,6 +363,7 @@ class DisplaySetting final :
   enum : int {
     kThemeFieldNumber = 1,
     kFontsizeFieldNumber = 2,
+    kLanguageFieldNumber = 3,
   };
   // string theme = 1;
   void clear_theme();
@@ -392,6 +393,20 @@ class DisplaySetting final :
   std::string* _internal_mutable_fontsize();
   public:
 
+  // string language = 3;
+  void clear_language();
+  const std::string& language() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_language(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_language();
+  PROTOBUF_MUST_USE_RESULT std::string* release_language();
+  void set_allocated_language(std::string* language);
+  private:
+  const std::string& _internal_language() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_language(const std::string& value);
+  std::string* _internal_mutable_language();
+  public:
+
   // @@protoc_insertion_point(class_scope:commondata.DisplaySetting)
  private:
   class _Internal;
@@ -401,6 +416,7 @@ class DisplaySetting final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr theme_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fontsize_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr language_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_test_2eproto;
 };
@@ -647,6 +663,52 @@ inline void DisplaySetting::set_allocated_fontsize(std::string* fontsize) {
   fontsize_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), fontsize,
       GetArenaForAllocation());
   // @@protoc_insertion_point(field_set_allocated:commondata.DisplaySetting.fontsize)
+}
+
+// string language = 3;
+inline void DisplaySetting::clear_language() {
+  language_.ClearToEmpty();
+}
+inline const std::string& DisplaySetting::language() const {
+  // @@protoc_insertion_point(field_get:commondata.DisplaySetting.language)
+  return _internal_language();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DisplaySetting::set_language(ArgT0&& arg0, ArgT... args) {
+ 
+ language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:commondata.DisplaySetting.language)
+}
+inline std::string* DisplaySetting::mutable_language() {
+  std::string* _s = _internal_mutable_language();
+  // @@protoc_insertion_point(field_mutable:commondata.DisplaySetting.language)
+  return _s;
+}
+inline const std::string& DisplaySetting::_internal_language() const {
+  return language_.Get();
+}
+inline void DisplaySetting::_internal_set_language(const std::string& value) {
+  
+  language_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::_internal_mutable_language() {
+  
+  return language_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DisplaySetting::release_language() {
+  // @@protoc_insertion_point(field_release:commondata.DisplaySetting.language)
+  return language_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DisplaySetting::set_allocated_language(std::string* language) {
+  if (language != nullptr) {
+    
+  } else {
+    
+  }
+  language_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), language,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:commondata.DisplaySetting.language)
 }
 
 #ifdef __GNUC__

@@ -77,20 +77,12 @@ namespace Commondata {
         __Marshaller_commondata_DisplaySetting);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty> __Method_TestDisplaySetting = new grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(
+    static readonly grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetDisplaySetting = new grpc::Method<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "TestDisplaySetting",
+        "SetDisplaySetting",
         __Marshaller_commondata_DisplaySetting,
         __Marshaller_google_protobuf_Empty);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Commondata.DisplaySetting, global::Commondata.SystemInfo> __Method_GetSystemInfoDisplay = new grpc::Method<global::Commondata.DisplaySetting, global::Commondata.SystemInfo>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "GetSystemInfoDisplay",
-        __Marshaller_commondata_DisplaySetting,
-        __Marshaller_commondata_SystemInfo);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -121,13 +113,7 @@ namespace Commondata {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Commondata.SystemInfo> GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> SetDisplaySetting(global::Commondata.DisplaySetting request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -222,44 +208,24 @@ namespace Commondata {
         return CallInvoker.AsyncUnaryCall(__Method_GetDisplaySetting, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetDisplaySetting(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return TestDisplaySetting(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SetDisplaySetting(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Google.Protobuf.WellKnownTypes.Empty TestDisplaySetting(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetDisplaySetting(global::Commondata.DisplaySetting request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_TestDisplaySetting, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_SetDisplaySetting, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return TestDisplaySettingAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SetDisplaySettingAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TestDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetDisplaySettingAsync(global::Commondata.DisplaySetting request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_TestDisplaySetting, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Commondata.SystemInfo GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetSystemInfoDisplay(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Commondata.SystemInfo GetSystemInfoDisplay(global::Commondata.DisplaySetting request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetSystemInfoDisplay, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoDisplayAsync(global::Commondata.DisplaySetting request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetSystemInfoDisplayAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Commondata.SystemInfo> GetSystemInfoDisplayAsync(global::Commondata.DisplaySetting request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetSystemInfoDisplay, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_SetDisplaySetting, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -278,8 +244,7 @@ namespace Commondata {
           .AddMethod(__Method_GetSystemInfo, serviceImpl.GetSystemInfo)
           .AddMethod(__Method_SetSystemInfo, serviceImpl.SetSystemInfo)
           .AddMethod(__Method_GetDisplaySetting, serviceImpl.GetDisplaySetting)
-          .AddMethod(__Method_TestDisplaySetting, serviceImpl.TestDisplaySetting)
-          .AddMethod(__Method_GetSystemInfoDisplay, serviceImpl.GetSystemInfoDisplay).Build();
+          .AddMethod(__Method_SetDisplaySetting, serviceImpl.SetDisplaySetting).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -292,8 +257,7 @@ namespace Commondata {
       serviceBinder.AddMethod(__Method_GetSystemInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.SystemInfo>(serviceImpl.GetSystemInfo));
       serviceBinder.AddMethod(__Method_SetSystemInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.SystemInfo, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.SetSystemInfo));
       serviceBinder.AddMethod(__Method_GetDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.DisplaySetting>(serviceImpl.GetDisplaySetting));
-      serviceBinder.AddMethod(__Method_TestDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.TestDisplaySetting));
-      serviceBinder.AddMethod(__Method_GetSystemInfoDisplay, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Commondata.SystemInfo>(serviceImpl.GetSystemInfoDisplay));
+      serviceBinder.AddMethod(__Method_SetDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.SetDisplaySetting));
     }
 
   }

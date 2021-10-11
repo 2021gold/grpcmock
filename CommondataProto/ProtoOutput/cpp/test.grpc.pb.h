@@ -56,19 +56,12 @@ class CommondataService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::DisplaySetting>> PrepareAsyncGetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::DisplaySetting>>(PrepareAsyncGetDisplaySettingRaw(context, request, cq));
     }
-    virtual ::grpc::Status TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::google::protobuf::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncTestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncTestDisplaySettingRaw(context, request, cq));
+    virtual ::grpc::Status SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSetDisplaySettingRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncTestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncTestDisplaySettingRaw(context, request, cq));
-    }
-    virtual ::grpc::Status GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::commondata::SystemInfo* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>> AsyncGetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>>(AsyncGetSystemInfoDisplayRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>> PrepareAsyncGetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>>(PrepareAsyncGetSystemInfoDisplayRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncSetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncSetDisplaySettingRaw(context, request, cq));
     }
     class async_interface {
      public:
@@ -79,10 +72,8 @@ class CommondataService final {
       virtual void SetSystemInfo(::grpc::ClientContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -94,10 +85,8 @@ class CommondataService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSetSystemInfoRaw(::grpc::ClientContext* context, const ::commondata::SystemInfo& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::commondata::DisplaySetting>* AsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::commondata::DisplaySetting>* PrepareAsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>* AsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::commondata::SystemInfo>* PrepareAsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSetDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSetDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -123,19 +112,12 @@ class CommondataService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>> PrepareAsyncGetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>>(PrepareAsyncGetDisplaySettingRaw(context, request, cq));
     }
-    ::grpc::Status TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::google::protobuf::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncTestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncTestDisplaySettingRaw(context, request, cq));
+    ::grpc::Status SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSetDisplaySettingRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncTestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncTestDisplaySettingRaw(context, request, cq));
-    }
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::commondata::SystemInfo* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>> AsyncGetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>>(AsyncGetSystemInfoDisplayRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>> PrepareAsyncGetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>>(PrepareAsyncGetSystemInfoDisplayRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncSetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncSetDisplaySettingRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
@@ -146,10 +128,8 @@ class CommondataService final {
       void SetSystemInfo(::grpc::ClientContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, std::function<void(::grpc::Status)>) override;
       void GetDisplaySetting(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
-      void TestDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, std::function<void(::grpc::Status)>) override;
-      void GetSystemInfoDisplay(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -167,15 +147,12 @@ class CommondataService final {
     ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSetSystemInfoRaw(::grpc::ClientContext* context, const ::commondata::SystemInfo& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>* AsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::commondata::DisplaySetting>* PrepareAsyncGetDisplaySettingRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncTestDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* AsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::commondata::SystemInfo>* PrepareAsyncGetSystemInfoDisplayRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSetDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSetDisplaySettingRaw(::grpc::ClientContext* context, const ::commondata::DisplaySetting& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetSystemInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_SetSystemInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetDisplaySetting_;
-    const ::grpc::internal::RpcMethod rpcmethod_TestDisplaySetting_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetSystemInfoDisplay_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetDisplaySetting_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -186,8 +163,7 @@ class CommondataService final {
     virtual ::grpc::Status GetSystemInfo(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::SystemInfo* response);
     virtual ::grpc::Status SetSystemInfo(::grpc::ServerContext* context, const ::commondata::SystemInfo* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status GetDisplaySetting(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response);
-    virtual ::grpc::Status TestDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response);
-    virtual ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response);
+    virtual ::grpc::Status SetDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetSystemInfo : public BaseClass {
@@ -250,46 +226,26 @@ class CommondataService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_TestDisplaySetting : public BaseClass {
+  class WithAsyncMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_TestDisplaySetting() {
+    WithAsyncMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_TestDisplaySetting() override {
+    ~WithAsyncMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestTestDisplaySetting(::grpc::ServerContext* context, ::commondata::DisplaySetting* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetDisplaySetting(::grpc::ServerContext* context, ::commondata::DisplaySetting* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodAsync(4);
-    }
-    ~WithAsyncMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetSystemInfoDisplay(::grpc::ServerContext* context, ::commondata::DisplaySetting* request, ::grpc::ServerAsyncResponseWriter< ::commondata::SystemInfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_GetSystemInfo<WithAsyncMethod_SetSystemInfo<WithAsyncMethod_GetDisplaySetting<WithAsyncMethod_TestDisplaySetting<WithAsyncMethod_GetSystemInfoDisplay<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_GetSystemInfo<WithAsyncMethod_SetSystemInfo<WithAsyncMethod_GetDisplaySetting<WithAsyncMethod_SetDisplaySetting<Service > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GetSystemInfo : public BaseClass {
    private:
@@ -372,60 +328,33 @@ class CommondataService final {
       ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::commondata::DisplaySetting* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_TestDisplaySetting : public BaseClass {
+  class WithCallbackMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_TestDisplaySetting() {
+    WithCallbackMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::commondata::DisplaySetting, ::google::protobuf::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) { return this->TestDisplaySetting(context, request, response); }));}
-    void SetMessageAllocatorFor_TestDisplaySetting(
+                   ::grpc::CallbackServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response) { return this->SetDisplaySetting(context, request, response); }));}
+    void SetMessageAllocatorFor_SetDisplaySetting(
         ::grpc::MessageAllocator< ::commondata::DisplaySetting, ::google::protobuf::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::commondata::DisplaySetting, ::google::protobuf::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_TestDisplaySetting() override {
+    ~WithCallbackMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* TestDisplaySetting(
+    virtual ::grpc::ServerUnaryReactor* SetDisplaySetting(
       ::grpc::CallbackServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::commondata::DisplaySetting, ::commondata::SystemInfo>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::commondata::DisplaySetting* request, ::commondata::SystemInfo* response) { return this->GetSystemInfoDisplay(context, request, response); }));}
-    void SetMessageAllocatorFor_GetSystemInfoDisplay(
-        ::grpc::MessageAllocator< ::commondata::DisplaySetting, ::commondata::SystemInfo>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::commondata::DisplaySetting, ::commondata::SystemInfo>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* GetSystemInfoDisplay(
-      ::grpc::CallbackServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_GetSystemInfo<WithCallbackMethod_SetSystemInfo<WithCallbackMethod_GetDisplaySetting<WithCallbackMethod_TestDisplaySetting<WithCallbackMethod_GetSystemInfoDisplay<Service > > > > > CallbackService;
+  typedef WithCallbackMethod_GetSystemInfo<WithCallbackMethod_SetSystemInfo<WithCallbackMethod_GetDisplaySetting<WithCallbackMethod_SetDisplaySetting<Service > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetSystemInfo : public BaseClass {
@@ -479,35 +408,18 @@ class CommondataService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_TestDisplaySetting : public BaseClass {
+  class WithGenericMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_TestDisplaySetting() {
+    WithGenericMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_TestDisplaySetting() override {
+    ~WithGenericMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodGeneric(4);
-    }
-    ~WithGenericMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -573,43 +485,23 @@ class CommondataService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_TestDisplaySetting : public BaseClass {
+  class WithRawMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_TestDisplaySetting() {
+    WithRawMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_TestDisplaySetting() override {
+    ~WithRawMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestTestDisplaySetting(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetDisplaySetting(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodRaw(4);
-    }
-    ~WithRawMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetSystemInfoDisplay(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -679,47 +571,25 @@ class CommondataService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_TestDisplaySetting : public BaseClass {
+  class WithRawCallbackMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_TestDisplaySetting() {
+    WithRawCallbackMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TestDisplaySetting(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetDisplaySetting(context, request, response); }));
     }
-    ~WithRawCallbackMethod_TestDisplaySetting() override {
+    ~WithRawCallbackMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* TestDisplaySetting(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodRawCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetSystemInfoDisplay(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* GetSystemInfoDisplay(
+    virtual ::grpc::ServerUnaryReactor* SetDisplaySetting(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -804,62 +674,35 @@ class CommondataService final {
     virtual ::grpc::Status StreamedGetDisplaySetting(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::google::protobuf::Empty,::commondata::DisplaySetting>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_TestDisplaySetting : public BaseClass {
+  class WithStreamedUnaryMethod_SetDisplaySetting : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_TestDisplaySetting() {
+    WithStreamedUnaryMethod_SetDisplaySetting() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::commondata::DisplaySetting, ::google::protobuf::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::commondata::DisplaySetting, ::google::protobuf::Empty>* streamer) {
-                       return this->StreamedTestDisplaySetting(context,
+                       return this->StreamedSetDisplaySetting(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_TestDisplaySetting() override {
+    ~WithStreamedUnaryMethod_SetDisplaySetting() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status TestDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+    ::grpc::Status SetDisplaySetting(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedTestDisplaySetting(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::commondata::DisplaySetting,::google::protobuf::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetDisplaySetting(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::commondata::DisplaySetting,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_GetSystemInfoDisplay : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_GetSystemInfoDisplay() {
-      ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::commondata::DisplaySetting, ::commondata::SystemInfo>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::commondata::DisplaySetting, ::commondata::SystemInfo>* streamer) {
-                       return this->StreamedGetSystemInfoDisplay(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_GetSystemInfoDisplay() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status GetSystemInfoDisplay(::grpc::ServerContext* /*context*/, const ::commondata::DisplaySetting* /*request*/, ::commondata::SystemInfo* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetSystemInfoDisplay(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::commondata::DisplaySetting,::commondata::SystemInfo>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_SetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_TestDisplaySetting<WithStreamedUnaryMethod_GetSystemInfoDisplay<Service > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_SetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<Service > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_SetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_TestDisplaySetting<WithStreamedUnaryMethod_GetSystemInfoDisplay<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_SetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<Service > > > > StreamedService;
 };
 
 }  // namespace commondata
