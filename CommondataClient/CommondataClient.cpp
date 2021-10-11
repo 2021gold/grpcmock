@@ -12,10 +12,9 @@
 
 #include "../CommondataProto/ProtoOutput/cpp/test.grpc.pb.h"
 
-#define MAX_BUFFER 255
-#define MAX_LENGTH 100
-#define PATH_TO_INI L"..\\Data\\config.ini"
-#define ERROR_MESSAGE L"fail while retrieving file"
+#include "../Utility/Utility.h"
+
+
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -98,36 +97,6 @@ private:
 
 };
 
-std::string getDataIniFile(const LPCWSTR appName, const LPCWSTR keyName)
-{
-	// read ini file
-	wchar_t address_wc[MAX_LENGTH];
-	char address_c[MAX_LENGTH];
-	std::string result;
-
-	GetPrivateProfileString(
-		appName,
-		keyName,
-		ERROR_MESSAGE,
-		address_wc,
-		MAX_LENGTH,
-		PATH_TO_INI
-
-	);
-	wcstombs(address_c, address_wc, MAX_LENGTH);
-	std::cout << "ini : " << address_c << std::endl;
-
-	for (int i = 0; i < sizeof(address_c); i++)
-	{
-		if (address_c[i] == NULL)
-		{
-			break;
-		}
-
-		result.push_back(address_c[i]);
-	}
-	return result;
-}
 
 void DisplayMenu(CommonClient &client_system)
 {
@@ -143,13 +112,13 @@ void DisplayMenu(CommonClient &client_system)
 			cout << "\n\n\n\tMenu";
 			cout << "\n\n\t1. SystemInfo Display";
 			cout << "\n\n\t2. Set SystemInfo";
-			cout << "\n\n\t3. Exit";
+			cout << "\n\n\t0. Exit";
 			// check menu option phai tu 1 den 8
 			do
 			{
-				cout << "\n\n\tPlease choose menu (so tu 1 den 3) ";
+				cout << "\n\n\tPlease choose menu (so tu 0 den 2) ";
 				cin >> menu_option;
-			} while (menu_option < '1' || menu_option > '3');
+			} while (menu_option < '0' || menu_option > '2');
 
 			system("cls");
 			switch (menu_option)
@@ -174,15 +143,15 @@ void DisplayMenu(CommonClient &client_system)
 				cout << "\n\nPress Enter to back..." << endl;
 				break;
 			
-			case '3':
-				menu_option = '3';
+			case '0':
+				menu_option = '0';
 				cout << "\n\n\tThank You." << endl;
 				break;
 			default:cout << "\a";
 			}
 			cin.ignore();
 			cin.get();
-		} while (menu_option != '3');
+		} while (menu_option != '0');
 	}
 }
 

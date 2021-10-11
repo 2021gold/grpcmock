@@ -1,0 +1,2 @@
+#define UTILITY_API __declspec(dllexport)
+#define UTILITY_API __declspec(dllimport)

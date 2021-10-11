@@ -15,6 +15,8 @@
 #include <grpcpp/health_check_service_interface.h>
 #include "../CommondataProto/ProtoOutput/cpp/test.grpc.pb.h"
 
+#include "../Utility/Utility.h"
+
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
@@ -22,42 +24,9 @@ using grpc::Status;
 using commondata::CommondataService;
 using nlohmann::json;
 
-#define MAX_BUFFER 255
-#define MAX_LENGTH 100
-#define PATH_TO_INI L"..\\Data\\config.ini"
-#define ERROR_MESSAGE L"fail while retrieving file"
+
 #define PATH_TO_JSON L"..\\Data\\data.json"
 
-std::string getDataIniFile(const LPCWSTR appName, const LPCWSTR keyName)
-{
-	// read ini file
-	wchar_t address_wc[MAX_LENGTH];
-	char address_c[MAX_LENGTH];
-	std::string result;
-
-	GetPrivateProfileString(
-		appName,
-		keyName,
-		ERROR_MESSAGE,
-		address_wc,
-		MAX_LENGTH,
-		PATH_TO_INI
-
-	);
-	wcstombs(address_c, address_wc, MAX_LENGTH);
-	std::cout << "ini : " << address_c << std::endl;
-
-	for (int i = 0; i < sizeof(address_c); i++)
-	{
-		if (address_c[i] == NULL)
-		{
-			break;
-		}
-
-		result.push_back(address_c[i]);
-	}
-	return result;
-}
 
 std::string readJsonFile(const std::string &key)
 {
