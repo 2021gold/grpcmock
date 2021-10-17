@@ -21,18 +21,18 @@
     <ClCompile Include="CommondataServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.cc">
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.pb.cc">
       <Filter>Proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.pb.cc">
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.cc">
       <Filter>Proto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.h">
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.pb.h">
       <Filter>Proto</Filter>
     </ClInclude>
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.pb.h">
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.h">
       <Filter>Proto</Filter>
     </ClInclude>
   </ItemGroup>

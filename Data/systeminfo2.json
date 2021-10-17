@@ -1,0 +1,21 @@
+[
+{
+    "id": "1",
+    "name": "EU",
+	"settingdisplay": {
+        "fontsize": 36,
+		"language": "English",
+		"theme": "black",
+		"volume": 50,
+		"brightness": 40,
+		"keyboard": "UK",
+
+
+    },
+},
+{
+    "id": "2",
+    "name": "EU",
+    "color": "2021RV1"
+}
+]

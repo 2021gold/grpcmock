@@ -9,9 +9,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Definition\test.proto">
+    <None Include="postbuild.bat" />
+    <None Include="Definition\data.proto">
       <Filter>Definition</Filter>
     </None>
-    <None Include="postbuild.bat" />
   </ItemGroup>
 </Project>

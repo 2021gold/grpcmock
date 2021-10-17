@@ -9,22 +9,34 @@ message SystemInfo {
 	  string version = 1;
 	  string model = 2;
 	  string region = 3;
-
+	  int32 serial = 4;
+	  string type = 5;
+	  int32 screen = 6;
 }
 
 message DisplaySetting {
 
 	  string theme = 1;
-	  string fontsize = 2;
+	  int32 fontsize = 2;
 	  string language = 3;
+	  int32 volume = 4;
+	  int32 brightness = 5;
+	  string camera = 6;
+	  string keyboard = 7;
+	  string notification = 8;
 }
 
+message UserProfile {
+	int32 id = 1;
+	string username = 2;
+	DisplaySetting disp = 3;
+}
 
 service CommondataService {
 
   rpc GetSystemInfo (google.protobuf.Empty) returns (SystemInfo) {}
   rpc GetDisplaySetting (google.protobuf.Empty) returns (DisplaySetting) {}
   rpc SetDisplaySetting (DisplaySetting) returns (google.protobuf.Empty) {}
-  //rpc ReadAllSetting (request) returns (stream response) {}
+  rpc GetUserProfile (google.protobuf.Empty) returns (stream UserProfile) {}
 }
 

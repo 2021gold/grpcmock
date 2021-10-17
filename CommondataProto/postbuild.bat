@@ -17,8 +17,8 @@ xcopy /R /C /Y %GRPCLibDir%*.dll %OurDir%
 
  
 
-%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --cpp_out=%ProtoCppDir% --csharp_out=%ProtoCsharpDir% test.proto
+%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --cpp_out=%ProtoCppDir% --csharp_out=%ProtoCsharpDir% data.proto
 
-%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --grpc_out=%ProtoCppDir% --plugin=protoc-gen-grpc=%GrpcCppPlugin% test.proto 
+%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --grpc_out=%ProtoCppDir% --plugin=protoc-gen-grpc=%GrpcCppPlugin% data.proto 
 
-%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --grpc_out=%ProtoCsharpDir% --plugin=protoc-gen-grpc=%GrpcCsharpPlugin% test.proto
+%GRPCLibDir%protoc.exe --proto_path=%ProtoDir% --grpc_out=%ProtoCsharpDir% --plugin=protoc-gen-grpc=%GrpcCsharpPlugin% data.proto

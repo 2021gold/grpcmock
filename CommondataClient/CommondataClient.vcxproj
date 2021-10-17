@@ -158,18 +158,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.cc" />
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.pb.cc" />
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.cc" />
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.pb.cc" />
     <ClCompile Include="CommondataClient.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.h" />
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.pb.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utility\Utility.vcxproj">
       <Project>{01793374-1ff8-4ff2-9a3f-26f17e8c34a7}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.h" />
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.pb.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Definition\test.proto" />
+    <None Include="Definition\data.proto" />
     <None Include="postbuild.bat" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

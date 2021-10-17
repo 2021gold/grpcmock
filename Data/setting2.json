@@ -1,0 +1,44 @@
+[
+{
+    "id": 1,
+    "username": "User1",
+    "settingdisplay": {
+        "fontsize": 36,
+		"language": "English",
+		"theme": "black",
+		"volume": 50,
+		"brightness": 40,
+		"keyboard": "UK",
+		"camera": "On",
+		"notification": "On"
+    }
+},
+{
+    "id": 2,
+    "username": "User2",
+    "settingdisplay": {
+        "fontsize": 42,
+		"language": "Japan",
+		"theme": "white",
+		"volume": 75,
+		"brightness": 80,
+		"keyboard": "Japanese",
+		"camera": "Off",
+		"notification": "Off"
+    }
+},
+{
+    "id": 3,
+    "username": "User3",
+    "settingdisplay": {
+        "fontsize": 46,
+		"language": "Korea",
+		"theme": "white",
+		"volume": 100,
+		"brightness": 100,
+		"keyboard": "Pinjin",
+		"camera": "Off",
+		"notification": "Off"
+    }
+}
+]

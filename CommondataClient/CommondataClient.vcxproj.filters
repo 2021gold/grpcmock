@@ -14,25 +14,25 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Proto">
-      <UniqueIdentifier>{ee3e7234-f58b-423d-8edc-5aa9e27f71e3}</UniqueIdentifier>
+      <UniqueIdentifier>{86e8c2ce-aeae-4121-baa3-9de087a44ab8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommondataClient.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.cc">
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.pb.cc">
       <Filter>Proto</Filter>
     </ClCompile>
-    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\test.pb.cc">
+    <ClCompile Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.cc">
       <Filter>Proto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.grpc.pb.h">
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.pb.h">
       <Filter>Proto</Filter>
     </ClInclude>
-    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\test.pb.h">
+    <ClInclude Include="..\CommondataProto\ProtoOutput\cpp\data.grpc.pb.h">
       <Filter>Proto</Filter>
     </ClInclude>
   </ItemGroup>
