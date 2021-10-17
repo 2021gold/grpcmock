@@ -1,44 +1,44 @@
 [
-{
-    "id": 1,
-    "username": "User1",
-    "settingdisplay": {
-        "fontsize": 36,
-		"language": "English",
-		"theme": "black",
-		"volume": 50,
-		"brightness": 40,
-		"keyboard": "UK",
-		"camera": "On",
-		"notification": "On"
+    {
+        "id": 1,
+        "settingdisplay": {
+            "brightness": 60,
+            "camera": "Off",
+            "fontsize": 32,
+            "keyboard": "UK",
+            "language": "English",
+            "notification": "Off",
+            "theme": "Black",
+            "volume": 50
+        },
+        "username": "User1"
+    },
+    {
+        "id": 2,
+        "settingdisplay": {
+            "brightness": 80,
+            "camera": "Off",
+            "fontsize": 42,
+            "keyboard": "Japanese",
+            "language": "Japan",
+            "notification": "Off",
+            "theme": "white",
+            "volume": 75
+        },
+        "username": "User2"
+    },
+    {
+        "id": 3,
+        "settingdisplay": {
+            "brightness": 100,
+            "camera": "Off",
+            "fontsize": 46,
+            "keyboard": "Pinjin",
+            "language": "Korea",
+            "notification": "Off",
+            "theme": "white",
+            "volume": 100
+        },
+        "username": "User3"
     }
-},
-{
-    "id": 2,
-    "username": "User2",
-    "settingdisplay": {
-        "fontsize": 42,
-		"language": "Japan",
-		"theme": "white",
-		"volume": 75,
-		"brightness": 80,
-		"keyboard": "Japanese",
-		"camera": "Off",
-		"notification": "Off"
-    }
-},
-{
-    "id": 3,
-    "username": "User3",
-    "settingdisplay": {
-        "fontsize": 46,
-		"language": "Korea",
-		"theme": "white",
-		"volume": 100,
-		"brightness": 100,
-		"keyboard": "Pinjin",
-		"camera": "Off",
-		"notification": "Off"
-    }
-}
 ]

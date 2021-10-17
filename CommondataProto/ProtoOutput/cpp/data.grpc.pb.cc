@@ -26,6 +26,7 @@ static const char* CommondataService_method_names[] = {
   "/commondata.CommondataService/GetDisplaySetting",
   "/commondata.CommondataService/SetDisplaySetting",
   "/commondata.CommondataService/GetUserProfile",
+  "/commondata.CommondataService/SetUserProfile",
 };
 
 std::unique_ptr< CommondataService::Stub> CommondataService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -39,6 +40,7 @@ CommondataService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& 
   , rpcmethod_GetDisplaySetting_(CommondataService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetDisplaySetting_(CommondataService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetUserProfile_(CommondataService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_SetUserProfile_(CommondataService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status CommondataService::Stub::GetSystemInfo(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::commondata::SystemInfo* response) {
@@ -126,6 +128,29 @@ void CommondataService::Stub::async::GetUserProfile(::grpc::ClientContext* conte
   return ::grpc::internal::ClientAsyncReaderFactory< ::commondata::UserProfile>::Create(channel_.get(), cq, rpcmethod_GetUserProfile_, context, request, false, nullptr);
 }
 
+::grpc::Status CommondataService::Stub::SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::google::protobuf::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::commondata::UserProfile, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetUserProfile_, context, request, response);
+}
+
+void CommondataService::Stub::async::SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::commondata::UserProfile, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetUserProfile_, context, request, response, std::move(f));
+}
+
+void CommondataService::Stub::async::SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetUserProfile_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::PrepareAsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::google::protobuf::Empty, ::commondata::UserProfile, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetUserProfile_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* CommondataService::Stub::AsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetUserProfileRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 CommondataService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       CommondataService_method_names[0],
@@ -167,6 +192,16 @@ CommondataService::Service::Service() {
              ::grpc::ServerWriter<::commondata::UserProfile>* writer) {
                return service->GetUserProfile(ctx, req, writer);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      CommondataService_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< CommondataService::Service, ::commondata::UserProfile, ::google::protobuf::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](CommondataService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::commondata::UserProfile* req,
+             ::google::protobuf::Empty* resp) {
+               return service->SetUserProfile(ctx, req, resp);
+             }, this)));
 }
 
 CommondataService::Service::~Service() {
@@ -197,6 +232,13 @@ CommondataService::Service::~Service() {
   (void) context;
   (void) request;
   (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status CommondataService::Service::SetUserProfile(::grpc::ServerContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

@@ -129,7 +129,7 @@ const char descriptor_table_protodef_data_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "\001(\t\022\020\n\010keyboard\030\007 \001(\t\022\024\n\014notification\030\010 "
   "\001(\t\"U\n\013UserProfile\022\n\n\002id\030\001 \001(\005\022\020\n\010userna"
   "me\030\002 \001(\t\022(\n\004disp\030\003 \001(\0132\032.commondata.Disp"
-  "laySetting2\263\002\n\021CommondataService\022A\n\rGetS"
+  "laySetting2\370\002\n\021CommondataService\022A\n\rGetS"
   "ystemInfo\022\026.google.protobuf.Empty\032\026.comm"
   "ondata.SystemInfo\"\000\022I\n\021GetDisplaySetting"
   "\022\026.google.protobuf.Empty\032\032.commondata.Di"
@@ -137,14 +137,15 @@ const char descriptor_table_protodef_data_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "mmondata.DisplaySetting\032\026.google.protobu"
   "f.Empty\"\000\022E\n\016GetUserProfile\022\026.google.pro"
   "tobuf.Empty\032\027.commondata.UserProfile\"\0000\001"
-  "b\006proto3"
+  "\022C\n\016SetUserProfile\022\027.commondata.UserProf"
+  "ile\032\026.google.protobuf.Empty\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_data_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_data_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_data_2eproto = {
-  false, false, 728, descriptor_table_protodef_data_2eproto, "data.proto", 
+  false, false, 797, descriptor_table_protodef_data_2eproto, "data.proto", 
   &descriptor_table_data_2eproto_once, descriptor_table_data_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_data_2eproto::offsets,
   file_level_metadata_data_2eproto, file_level_enum_descriptors_data_2eproto, file_level_service_descriptors_data_2eproto,

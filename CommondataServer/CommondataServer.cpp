@@ -63,6 +63,8 @@ void writeJsonFile(nlohmann::json &j, const wchar_t *path)
 	std::ofstream o(path);
 	o << std::setw(4) << j << std::endl;
 	mtx.unlock();
+	std::cout << "finish write " << j << std::endl;
+
 }
 struct s_setting
 {
@@ -217,6 +219,54 @@ private:
 		return Status::OK;
 	}
 
+	::grpc::Status SetUserProfile(::grpc::ServerContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response) override
+	{
+		std::ifstream db_file(PATH_TO_DISPLAYSETTING2);
+		if (!db_file.is_open()) {
+			std::cout << "Failed to open " << PATH_TO_DISPLAYSETTING2 << std::endl;
+		}
+		std::stringstream db;
+		db << db_file.rdbuf();
+		string path = db.str();
+		path.erase(remove_if(path.begin(), path.end(), isspace), path.end());
+		cout << path << endl;
+		int idx = 0;
+		nlohmann::json js = json::parse(path);
+		userprofile = *request;
+		DisplaySetting *displaysetting = userprofile.mutable_disp();
+		for (json &obj : js)
+		{
+			if (request->id() == obj["id"])
+			{
+				obj["username"]							= request->username();
+				obj["settingdisplay"]["fontsize"]		= displaysetting->fontsize();
+				obj["settingdisplay"]["language"]		= displaysetting->language();
+				obj["settingdisplay"]["theme"]			= displaysetting->theme();
+				obj["settingdisplay"]["volume"]			= displaysetting->volume();
+				obj["settingdisplay"]["brightness"]		= displaysetting->brightness();
+				obj["settingdisplay"]["keyboard"]		= displaysetting->keyboard();
+				obj["settingdisplay"]["camera"]			= displaysetting->camera();
+				obj["settingdisplay"]["notification"]	= displaysetting->notification();
+
+				userprofile_list[idx].set_username(request->username());
+				userprofile_list[idx].mutable_disp()->set_fontsize(displaysetting->fontsize());
+				userprofile_list[idx].mutable_disp()->set_language(displaysetting->language());
+				userprofile_list[idx].mutable_disp()->set_theme(displaysetting->theme());
+				userprofile_list[idx].mutable_disp()->set_volume(displaysetting->volume());
+				userprofile_list[idx].mutable_disp()->set_brightness(displaysetting->brightness());
+				userprofile_list[idx].mutable_disp()->set_keyboard(displaysetting->keyboard());
+				userprofile_list[idx].mutable_disp()->set_camera(displaysetting->camera());
+				userprofile_list[idx].mutable_disp()->set_notification(displaysetting->notification());
+
+				//std::cout << obj["id"] << " " << request->username() << endl;
+				//std::cout << obj["username"] << endl;
+
+			}
+			idx++;
+		}
+		writeJsonFile(js, PATH_TO_DISPLAYSETTING2);
+		return Status::OK;
+	}
 
 private:
 

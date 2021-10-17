@@ -33,14 +33,15 @@ namespace Commondata {
             "BmNhbWVyYRgGIAEoCRIQCghrZXlib2FyZBgHIAEoCRIUCgxub3RpZmljYXRp",
             "b24YCCABKAkiVQoLVXNlclByb2ZpbGUSCgoCaWQYASABKAUSEAoIdXNlcm5h",
             "bWUYAiABKAkSKAoEZGlzcBgDIAEoCzIaLmNvbW1vbmRhdGEuRGlzcGxheVNl",
-            "dHRpbmcyswIKEUNvbW1vbmRhdGFTZXJ2aWNlEkEKDUdldFN5c3RlbUluZm8S",
+            "dHRpbmcy+AIKEUNvbW1vbmRhdGFTZXJ2aWNlEkEKDUdldFN5c3RlbUluZm8S",
             "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkaFi5jb21tb25kYXRhLlN5c3RlbUlu",
             "Zm8iABJJChFHZXREaXNwbGF5U2V0dGluZxIWLmdvb2dsZS5wcm90b2J1Zi5F",
             "bXB0eRoaLmNvbW1vbmRhdGEuRGlzcGxheVNldHRpbmciABJJChFTZXREaXNw",
             "bGF5U2V0dGluZxIaLmNvbW1vbmRhdGEuRGlzcGxheVNldHRpbmcaFi5nb29n",
             "bGUucHJvdG9idWYuRW1wdHkiABJFCg5HZXRVc2VyUHJvZmlsZRIWLmdvb2ds",
             "ZS5wcm90b2J1Zi5FbXB0eRoXLmNvbW1vbmRhdGEuVXNlclByb2ZpbGUiADAB",
-            "YgZwcm90bzM="));
+            "EkMKDlNldFVzZXJQcm9maWxlEhcuY29tbW9uZGF0YS5Vc2VyUHJvZmlsZRoW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

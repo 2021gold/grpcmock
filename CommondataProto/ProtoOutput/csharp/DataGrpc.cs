@@ -86,6 +86,14 @@ namespace Commondata {
         __Marshaller_google_protobuf_Empty,
         __Marshaller_commondata_UserProfile);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Commondata.UserProfile, global::Google.Protobuf.WellKnownTypes.Empty> __Method_SetUserProfile = new grpc::Method<global::Commondata.UserProfile, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SetUserProfile",
+        __Marshaller_commondata_UserProfile,
+        __Marshaller_google_protobuf_Empty);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -116,6 +124,12 @@ namespace Commondata {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task GetUserProfile(global::Google.Protobuf.WellKnownTypes.Empty request, grpc::IServerStreamWriter<global::Commondata.UserProfile> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> SetUserProfile(global::Commondata.UserProfile request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -219,6 +233,26 @@ namespace Commondata {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetUserProfile, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetUserProfile(global::Commondata.UserProfile request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetUserProfile(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty SetUserProfile(global::Commondata.UserProfile request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SetUserProfile, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetUserProfileAsync(global::Commondata.UserProfile request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SetUserProfileAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> SetUserProfileAsync(global::Commondata.UserProfile request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SetUserProfile, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override CommondataServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -236,7 +270,8 @@ namespace Commondata {
           .AddMethod(__Method_GetSystemInfo, serviceImpl.GetSystemInfo)
           .AddMethod(__Method_GetDisplaySetting, serviceImpl.GetDisplaySetting)
           .AddMethod(__Method_SetDisplaySetting, serviceImpl.SetDisplaySetting)
-          .AddMethod(__Method_GetUserProfile, serviceImpl.GetUserProfile).Build();
+          .AddMethod(__Method_GetUserProfile, serviceImpl.GetUserProfile)
+          .AddMethod(__Method_SetUserProfile, serviceImpl.SetUserProfile).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -250,6 +285,7 @@ namespace Commondata {
       serviceBinder.AddMethod(__Method_GetDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.DisplaySetting>(serviceImpl.GetDisplaySetting));
       serviceBinder.AddMethod(__Method_SetDisplaySetting, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.DisplaySetting, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.SetDisplaySetting));
       serviceBinder.AddMethod(__Method_GetUserProfile, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Google.Protobuf.WellKnownTypes.Empty, global::Commondata.UserProfile>(serviceImpl.GetUserProfile));
+      serviceBinder.AddMethod(__Method_SetUserProfile, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Commondata.UserProfile, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.SetUserProfile));
     }
 
   }

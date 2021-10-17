@@ -149,9 +149,33 @@ public:
 		}
 	}
 
-	void SetUserProfile(const std::string user, const int id, const int fontsize, const std::string language, const std::string theme)
+	bool SetUserProfile(const int id, const std::string user, const int fontsize, const std::string language, 
+		const std::string theme, const int volume, const int brightness, 
+		const std::string keyboard, const std::string camera, const std::string notification)
 	{
 		ClientContext context;
+		userprofile.set_id(id);
+		userprofile.set_username(user);
+		userprofile.mutable_disp()->set_fontsize(fontsize);
+		userprofile.mutable_disp()->set_language(language);
+		userprofile.mutable_disp()->set_theme(theme);
+		userprofile.mutable_disp()->set_volume(volume);
+		userprofile.mutable_disp()->set_brightness(brightness);
+		userprofile.mutable_disp()->set_keyboard(keyboard);
+		userprofile.mutable_disp()->set_camera(camera);
+		userprofile.mutable_disp()->set_notification(notification);
+
+		Status status = stub_->SetUserProfile(&context, userprofile, &request);
+		if (status.ok())
+		{
+			std::cout << "Display setting set success." << std::endl;
+			return true;
+		}
+		else
+		{
+			std::cout << "Display setting set failed." << std::endl;
+			return false;
+		}
 		
 	}
 	void GetUserProfile(int id)
@@ -195,15 +219,14 @@ private:
 	UserProfile userprofile;
 };
 
-
 void DisplayMenu(CommonClient &client_system)
 {
 	{
 		using namespace std;
 		char menu_option;
 		string a;
-		string l_theme, l_language, l_user;
-		int l_fontsize, l_id;
+		string l_theme, l_language, l_user, l_keyboard, l_camera, l_notification;
+		int l_fontsize, l_id, l_volume, l_brightness;
 		// Nhap tu ban phim
 		do
 		{
@@ -255,36 +278,53 @@ void DisplayMenu(CommonClient &client_system)
 				//std::cout << "THEME    : " << client_system.GetDisplaySetting(DISPLAYSETTING::THEME) << std::endl;
 				//std::cout << "FONTSIZE : " << client_system.GetDisplaySetting(DISPLAYSETTING::FONTSIZE) << std::endl;
 				//std::cout << "LANGUAGE : " << client_system.GetDisplaySetting(DISPLAYSETTING::LANGUAGE) << std::endl;
-				std::cout << "Enter id user :";
-				int iduser;
-				std:cin >> iduser;
-				 client_system.GetUserProfile(iduser);
+
+				do
+				{
+					cout << "\nEnter Id : ";
+					cin >> l_id;
+					if (l_id > 3 || l_id < 1)
+					{
+						cout << "\nWrong Id , please enter id again!";
+					}
+				} while (l_id > 3 || l_id < 1);
+
+				 client_system.GetUserProfile(l_id);
 				cout << "\n\nPress Enter to back..." << endl;
 				break;
 
 			case MENU_SET_DISPLAYSETTING:
 				cout << "Set Display Setting\n";
+				do
+				{
+					cout << "\nEnter Id : ";
+					cin >> l_id;
+					if (l_id > 3 || l_id < 1)
+					{
+						cout << "\nWrong Id , please enter id again!";
+					}
+				} while (l_id > 3 || l_id < 1);
+
 				cout << "\nEnter User : ";
-				cin >> l_user;
-				cout << "\nEnter Id : ";
-				cin >> l_id;
+				cin >> l_user;		
+				cout << "\nEnter Fontsize : ";
+				cin >> l_fontsize;
 				cout << "\nEnter Language : ";
 				cin >> l_language;
 				cout << "\nEnter Theme : ";
 				cin >> l_theme;
-				cout << "\nEnter Fontsize : ";
-				cin >> l_fontsize;
-				/*cout << "\nEnter Volume : ";
-				cin >> l_language;
+				cout << "\nEnter Volume : ";
+				cin >> l_volume;
 				cout << "\nEnter Brightness : ";
-				cin >> l_theme;
+				cin >> l_brightness;
 				cout << "\nEnter Keyboard : ";
-				cin >> l_fontsize;
+				cin >> l_keyboard;
 				cout << "\nEnter Camera : ";
-				cin >> l_language;
+				cin >> l_camera;
 				cout << "\nEnter Notification : ";
-				cin >> l_language;*/
-				client_system.SetUserProfile(l_user, l_id, l_fontsize, l_language, l_theme);
+				cin >> l_notification;
+				client_system.SetUserProfile(l_id, l_user, l_fontsize, l_language, 
+					l_theme, l_volume, l_brightness, l_keyboard, l_camera,l_notification);
 				cout << "\n\nPress Enter to back..." << endl;
 				break;
 			case '0':

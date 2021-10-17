@@ -65,6 +65,13 @@ class CommondataService final {
     std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::commondata::UserProfile>> PrepareAsyncGetUserProfile(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::commondata::UserProfile>>(PrepareAsyncGetUserProfileRaw(context, request, cq));
     }
+    virtual ::grpc::Status SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::google::protobuf::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> AsyncSetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(AsyncSetUserProfileRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>> PrepareAsyncSetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>>(PrepareAsyncSetUserProfileRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -75,6 +82,8 @@ class CommondataService final {
       virtual void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetUserProfile(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::grpc::ClientReadReactor< ::commondata::UserProfile>* reactor) = 0;
+      virtual void SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -89,6 +98,8 @@ class CommondataService final {
     virtual ::grpc::ClientReaderInterface< ::commondata::UserProfile>* GetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::commondata::UserProfile>* AsyncGetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
     virtual ::grpc::ClientAsyncReaderInterface< ::commondata::UserProfile>* PrepareAsyncGetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* AsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::google::protobuf::Empty>* PrepareAsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -123,6 +134,13 @@ class CommondataService final {
     std::unique_ptr< ::grpc::ClientAsyncReader< ::commondata::UserProfile>> PrepareAsyncGetUserProfile(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncReader< ::commondata::UserProfile>>(PrepareAsyncGetUserProfileRaw(context, request, cq));
     }
+    ::grpc::Status SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::google::protobuf::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> AsyncSetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(AsyncSetUserProfileRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>> PrepareAsyncSetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>>(PrepareAsyncSetUserProfileRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -133,6 +151,8 @@ class CommondataService final {
       void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
       void SetDisplaySetting(::grpc::ClientContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetUserProfile(::grpc::ClientContext* context, const ::google::protobuf::Empty* request, ::grpc::ClientReadReactor< ::commondata::UserProfile>* reactor) override;
+      void SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, std::function<void(::grpc::Status)>) override;
+      void SetUserProfile(::grpc::ClientContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -153,10 +173,13 @@ class CommondataService final {
     ::grpc::ClientReader< ::commondata::UserProfile>* GetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request) override;
     ::grpc::ClientAsyncReader< ::commondata::UserProfile>* AsyncGetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq, void* tag) override;
     ::grpc::ClientAsyncReader< ::commondata::UserProfile>* PrepareAsyncGetUserProfileRaw(::grpc::ClientContext* context, const ::google::protobuf::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* AsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::google::protobuf::Empty>* PrepareAsyncSetUserProfileRaw(::grpc::ClientContext* context, const ::commondata::UserProfile& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetSystemInfo_;
     const ::grpc::internal::RpcMethod rpcmethod_GetDisplaySetting_;
     const ::grpc::internal::RpcMethod rpcmethod_SetDisplaySetting_;
     const ::grpc::internal::RpcMethod rpcmethod_GetUserProfile_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetUserProfile_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -168,6 +191,7 @@ class CommondataService final {
     virtual ::grpc::Status GetDisplaySetting(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::commondata::DisplaySetting* response);
     virtual ::grpc::Status SetDisplaySetting(::grpc::ServerContext* context, const ::commondata::DisplaySetting* request, ::google::protobuf::Empty* response);
     virtual ::grpc::Status GetUserProfile(::grpc::ServerContext* context, const ::google::protobuf::Empty* request, ::grpc::ServerWriter< ::commondata::UserProfile>* writer);
+    virtual ::grpc::Status SetUserProfile(::grpc::ServerContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetSystemInfo : public BaseClass {
@@ -249,7 +273,27 @@ class CommondataService final {
       ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetSystemInfo<WithAsyncMethod_GetDisplaySetting<WithAsyncMethod_SetDisplaySetting<WithAsyncMethod_GetUserProfile<Service > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetUserProfile(::grpc::ServerContext* context, ::commondata::UserProfile* request, ::grpc::ServerAsyncResponseWriter< ::google::protobuf::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetSystemInfo<WithAsyncMethod_GetDisplaySetting<WithAsyncMethod_SetDisplaySetting<WithAsyncMethod_GetUserProfile<WithAsyncMethod_SetUserProfile<Service > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GetSystemInfo : public BaseClass {
    private:
@@ -353,7 +397,34 @@ class CommondataService final {
     virtual ::grpc::ServerWriteReactor< ::commondata::UserProfile>* GetUserProfile(
       ::grpc::CallbackServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GetSystemInfo<WithCallbackMethod_GetDisplaySetting<WithCallbackMethod_SetDisplaySetting<WithCallbackMethod_GetUserProfile<Service > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::commondata::UserProfile, ::google::protobuf::Empty>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::commondata::UserProfile* request, ::google::protobuf::Empty* response) { return this->SetUserProfile(context, request, response); }));}
+    void SetMessageAllocatorFor_SetUserProfile(
+        ::grpc::MessageAllocator< ::commondata::UserProfile, ::google::protobuf::Empty>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::commondata::UserProfile, ::google::protobuf::Empty>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SetUserProfile(
+      ::grpc::CallbackServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_GetSystemInfo<WithCallbackMethod_GetDisplaySetting<WithCallbackMethod_SetDisplaySetting<WithCallbackMethod_GetUserProfile<WithCallbackMethod_SetUserProfile<Service > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetSystemInfo : public BaseClass {
@@ -419,6 +490,23 @@ class CommondataService final {
     }
     // disable synchronous version of this method
     ::grpc::Status GetUserProfile(::grpc::ServerContext* /*context*/, const ::google::protobuf::Empty* /*request*/, ::grpc::ServerWriter< ::commondata::UserProfile>* /*writer*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -501,6 +589,26 @@ class CommondataService final {
     }
     void RequestGetUserProfile(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetUserProfile(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -592,6 +700,28 @@ class CommondataService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetUserProfile(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SetUserProfile(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_GetSystemInfo : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -672,7 +802,34 @@ class CommondataService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSetDisplaySetting(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::commondata::DisplaySetting,::google::protobuf::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<Service > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SetUserProfile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SetUserProfile() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::commondata::UserProfile, ::google::protobuf::Empty>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::commondata::UserProfile, ::google::protobuf::Empty>* streamer) {
+                       return this->StreamedSetUserProfile(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SetUserProfile() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetUserProfile(::grpc::ServerContext* /*context*/, const ::commondata::UserProfile* /*request*/, ::google::protobuf::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetUserProfile(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::commondata::UserProfile,::google::protobuf::Empty>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<WithStreamedUnaryMethod_SetUserProfile<Service > > > > StreamedUnaryService;
   template <class BaseClass>
   class WithSplitStreamingMethod_GetUserProfile : public BaseClass {
    private:
@@ -701,7 +858,7 @@ class CommondataService final {
     virtual ::grpc::Status StreamedGetUserProfile(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::google::protobuf::Empty,::commondata::UserProfile>* server_split_streamer) = 0;
   };
   typedef WithSplitStreamingMethod_GetUserProfile<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<WithSplitStreamingMethod_GetUserProfile<Service > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetSystemInfo<WithStreamedUnaryMethod_GetDisplaySetting<WithStreamedUnaryMethod_SetDisplaySetting<WithSplitStreamingMethod_GetUserProfile<WithStreamedUnaryMethod_SetUserProfile<Service > > > > > StreamedService;
 };
 
 }  // namespace commondata

@@ -38,5 +38,7 @@ service CommondataService {
   rpc GetDisplaySetting (google.protobuf.Empty) returns (DisplaySetting) {}
   rpc SetDisplaySetting (DisplaySetting) returns (google.protobuf.Empty) {}
   rpc GetUserProfile (google.protobuf.Empty) returns (stream UserProfile) {}
+  rpc SetUserProfile (UserProfile) returns (google.protobuf.Empty) {}
+
 }
 
